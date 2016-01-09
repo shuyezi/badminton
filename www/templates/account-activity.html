@@ -1,0 +1,31 @@
+<ion-view view-title="我的活动">
+	
+	<ion-content>
+		<ion-tabs class="tabs-positive tabs-top">
+			<ion-tab ng-repeat="(index, item) in items" title="{{item.txt}}" ng-click="selectTabWithIndex({{index}})"></ion-tab>
+		</ion-tabs>	
+
+		<ion-list>
+		  <div style="padding-top: 50px; overflow: hidden;">
+		      <ion-item class="list-item" ng-repeat="activity in accountActivitys.list">
+		        <div ng-include="'acvitityItemTemp'"></div>
+		      </ion-item>
+	      </div>
+	    </ion-list>
+
+	</ion-content>
+
+</ion-view>
+
+<script type="text/ng-template" id="acvitityItemTemp">
+	<div class="account-activity-item">
+		<h2>{{activity.desc}}</h2>
+		<ul>
+			<li>{{activity.area}}</li>
+			<li>{{activity.time}}</li>
+			<li>{{activity.counter}}</li>
+			<li>{{activity.fee}}</li>
+			<li>{{activity.extra}}</li>
+		</ul>
+	</div>
+</script>

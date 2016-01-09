@@ -1,0 +1,7 @@
+<ion-view view-title="我的俱乐部">
+	<ion-content>
+		<ion-tabs class="tabs-positive tabs-top">
+			<ion-tab ng-repeat="(index, item) in items" title="{{item.txt}}" ng-click="selectTabWithIndex({{index}})"></ion-tab>
+		</ion-tabs>
+	</ion-content>
+</ion-view>

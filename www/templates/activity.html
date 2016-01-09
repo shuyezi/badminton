@@ -1,0 +1,92 @@
+<ion-view title="{{activitys.pageName}}">
+  <ion-nav-buttons side="right">
+    <a class="button" href="#/account">我</a>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <div class="list-wrap">
+        <ion-item class="list-item" ng-repeat="activity in activitys.list">
+          <div ng-include="'acvitityItemTemp'"></div>
+        </ion-item>
+      </div>
+    </ion-list>
+  </ion-content>
+  <div class="bottom-button" ng-click="create();">创建活动</div>
+</ion-view>
+
+<script id="model" type="text/ng-template">
+  <div class="modal" style="width:94%; height:80%; left:3%; top:10%; bottom:10%; right: 3%; min-height:80%;">
+    <ion-header-bar>
+      <h1 class="title">新建活动</h1>
+    </ion-header-bar>
+    <ion-content>
+      <form name="form">
+        <div class="list padding">
+          <label class="item item-input"><input type="text" placeholder="{{modelData.theme.name}}" ng-model="modelData.theme.info"></label>
+          <label class="item item-input"><input type="text" placeholder="{{modelData.time.name}}" ng-model="modelData.time.info"></label>
+          <label class="item item-input"><input type="text" placeholder="{{modelData.address.name}}" ng-model="modelData.address.info"></label>
+          <label class="item item-select item-stacked-label">
+            <select ng-options="list for list in modelData.number.list" ng-model="modelData.number.info">
+              <option value="">{{modelData.number.tip}}</option>
+            </select>
+          </label>
+          <label class="item item-input"><input type="text" placeholder="{{modelData.fee.name}}" ng-model="modelData.fee.info"></label>
+          <label class="item item-select item-stacked-label">
+            <select ng-options="list for list in modelData.club.list" ng-model="modelData.club.info">
+              <option value="">{{modelData.club.tip}}</option>
+            </select>
+          </label>
+          <label class="item item-select item-stacked-label">
+            <select ng-options="list for list in modelData.type.list" ng-model="modelData.type.info">
+              <option value="">{{modelData.type.tip}}</option>
+            </select>
+          </label>
+          <label class="item item-input">
+            <any class="input-label">是否公开</any>
+            <any class="toggle">
+              <input type="checkbox" ng-model="modelData.open.info">
+              <any class="track">
+                <any class="handle"></any>
+              </any>
+            </any>
+          </label>
+          <label class="item item-input">
+            <textarea rows="5" cols="20" placeholder="备注"></textarea>
+          </label>
+        </div>
+        <div class="padding">
+          <button class="button button-block button-positive" ng-click="checkForm(modelData)">好</button>
+        </div>
+      </form>
+    </ion-content>
+  </div>
+</script>
+
+<script type="text/ng-template" id="acvitityItemTemp">
+  <a href="javasctipt:void(0);" onClick="return false;">
+    <img ng-src="{{activity.cover}}" ng-if="activity.cover">
+    <div class="list-action" ng-show="!isLogin">登录</div>
+    <div class="list-action" ng-show="isLogin && !activity.isApplied" ng-click="applyNow(activity)">立即报名</div>
+    <div class="list-action" ng-show="isLogin && activity.isApplied && activity.permission==1">待审核</div>
+    <div class="list-action" ng-show="isLogin && activity.isApplied && activity.permission==2">报名成功</div>
+    <div class="list-action" ng-show="isLogin && activity.isApplied && activity.permission==3">未通过</div>
+    <div class="list-msg" ng-show="activity.showdetail == false">
+      <h2 class="text-overflow" ng-if="activity.desc">{{activity.desc}}</h2>
+      <p>
+        <em ng-if="activity.area">{{activity.area}}</em>
+        <em ng-if="activity.time">{{activity.time}}</em>
+      </p>
+    </div>
+    <div class="list-msg dark" ng-show="activity.showdetail == true">
+      <h2 class="text-overflow">{{activity.desc}}</h2>
+      <p>
+        <em ng-if="activity.area">{{activity.area}}</em>
+        <em ng-if="activity.time">{{activity.time}}</em>
+        <em ng-if="activity.counter">{{activity.counter}}</em>
+        <em ng-if="activity.fee">{{activity.fee}}</em>
+        <em ng-if="activity.extra" class="extra">{{activity.extra}}</em>
+      </p>
+    </div>
+    <i ng-class="{true: 'ion-ios-arrow-up', false: 'ion-ios-arrow-down'}[activity.showdetail==true]" ng-click="showDetail(activity)"></i>
+  </a>
+</script>
