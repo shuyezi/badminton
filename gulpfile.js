@@ -4,12 +4,14 @@ var bower = require('bower');
 var concat = require('gulp-concat');
 var connect = require('gulp-connect');
 var sass = require('gulp-sass');
+var less = require('gulp-less');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 
 var paths = {
   sass: ['./scss/**/*.scss'],
+  less: ['./less/style.less'],
   js: ['./js/**/*.js']
 };
 
@@ -27,13 +29,19 @@ gulp.task('sass', function(done) {
     .on('end', done);
 });
 
+gulp.task('less', function(){
+  return gulp.src(paths.less)
+    .pipe(less())
+    .pipe(gulp.dest('./www/css'));
+});
+
 //js任务
 gulp.task('js', function(){
   console.log("task==js");
 });
 
 gulp.task('watch', function() {
-  gulp.watch([paths.sass, paths.js], ['sass', 'js']);
+  gulp.watch([paths.less, paths.js], ['less', 'js']);
 });
 
 //本地服务器
@@ -46,4 +54,4 @@ gulp.task('webserver', function() {
 }); 
 
 //调试任务
-gulp.task('debug', ['webserver', 'sass', 'js', 'watch']);
+gulp.task('debug', ['webserver', 'less', 'js', 'watch']);

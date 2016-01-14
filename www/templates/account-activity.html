@@ -1,31 +1,52 @@
-<ion-view view-title="我的活动">
-	
+<ion-view view-title="我的活动" id="accountActivityPage">
+	<ion-tabs class="tabs-positive tabs-top">
+		<ion-tab ng-repeat="(index, item) in items" title="{{item.txt}}" 
+			on-select="onTabSelected(item)"
+		></ion-tab>
+	</ion-tabs>
 	<ion-content>
-		<ion-tabs class="tabs-positive tabs-top">
-			<ion-tab ng-repeat="(index, item) in items" title="{{item.txt}}" ng-click="selectTabWithIndex({{index}})"></ion-tab>
-		</ion-tabs>	
-
-		<ion-list>
-		  <div style="padding-top: 50px; overflow: hidden;">
-		      <ion-item class="list-item" ng-repeat="activity in accountActivitys.list">
-		        <div ng-include="'acvitityItemTemp'"></div>
-		      </ion-item>
+	  <div style="padding-top: 60px; overflow: hidden;" class="padding">
+	      <div class="accountxx-item" ng-repeat="activity in accountActivitys.list">
+	        <div ng-include="'accountAcvitityItemTemp'"></div>
 	      </div>
-	    </ion-list>
-
+      </div>
 	</ion-content>
-
 </ion-view>
 
-<script type="text/ng-template" id="acvitityItemTemp">
-	<div class="account-activity-item">
-		<h2>{{activity.desc}}</h2>
-		<ul>
-			<li>{{activity.area}}</li>
-			<li>{{activity.time}}</li>
-			<li>{{activity.counter}}</li>
-			<li>{{activity.fee}}</li>
-			<li>{{activity.extra}}</li>
-		</ul>
-	</div>
+<script id="accountAcvitityItemTemp" type="text/ng-template">
+  <a href="#/activity/{{activity.id}}">
+    <img class="cover" src="{{activity.cover}}" />
+    <div class="msg">
+      <h2 class="text-overflow" ng-if="activity.desc">{{activity.desc}}</h2>
+      <p ng-if="activity.area">{{activity.area}}</p>
+      <p ng-if="activity.time">{{activity.time}}</p>
+      <div class="list-button" ng-show="!activity.isOver && !activity.isPrivate && !activity.isCanceled" ng-click="cancel(activity)">取消活动</div>
+      <div class="list-button list-cancel" ng-show="!activity.isOver && activity.isPrivate && activity.isCanceled">已取消</div>
+      <div class="list-button" ng-show="!activity.isOver && activity.isPrivate" ng-click="checkList(activity.id)">查看名单</div>
+      <div class="list-button list-cancel" ng-show="activity.isOver">已结束</div>
+    </div>
+  </a>
+</script>
+
+<script type="text/ng-template" id="joinersListModel">
+	<div class="modal" id="joinersListModel">
+	    <ion-header-bar>
+	      <div class="buttons">
+	        <button class="button" ng-click="close()">关</button>
+	      </div>
+	      <h1 class="title">参加成员</h1>
+	    </ion-header-bar>
+	    <ion-content>
+	      <ul class="join-list padding">
+	      	<li ng-repeat="item in modelData">
+	      		<div class="avatar fl" style="background-image:url('{{item.avatar}}'); "></div>
+	      		<div class="name fl">{{item.name}}</div>
+	      		<div class="status fr" ng-show="item.permission == 3">已拒绝</div>
+	      		<div class="status fr" ng-show="item.permission == 2">已接受</div>
+	      		<div class="status fr" style="text-decoration: underline;" ng-show="item.permission ==1" ng-click="jujue(item)">拒绝</div>
+	      		<div class="status fr" style="text-decoration: underline;" ng-show="item.permission ==1" ng-click="jieshou(item)">接受</div>
+	      	</li>
+	      </ul>
+	    </ion-content>
+    </div>
 </script>

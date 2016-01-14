@@ -1,0 +1,33 @@
+<ion-view view-title="{{activityDetail.name}}" id="activityDetailPage">
+  <ion-nav-buttons side="right">
+    <a class="button" href="#/account">我</a>
+  </ion-nav-buttons>
+  <ion-content>
+    <div id="activityDetailPage" style="min-height:{{winHeight+70}}px; min-width:{{winWidth}}px;">
+      <!-- <div class="close-button">x</div> -->
+      <div class="wrapper">
+        <div class="cover"><img ng-src="{{activityDetail.cover}}" ng-if="activityDetail.cover"></div>
+        <div class="msg">
+          <h2>{{activityDetail.desc}}</h2>
+          <p ng-if="activityDetail.time">{{activityDetail.time}}</p>
+          <div class="area" ng-if="activityDetail.area">{{activityDetail.area}}<i class="fr ion-ios-arrow-forward"></i></div>
+          <p ng-if="activityDetail.extra" class="extra">{{activityDetail.extra}}</p>
+          <div class="join-people" ng-if="activityDetail.joinersCnt > 0">
+            <h3>报名的人<i>({{activityDetail.joinersCnt}}/{{activityDetail.joinersLimit}})</i></h3>
+            <ul ng-class="{true: 'shorter', false: ''}[activityDetail.joinersCnt > 5]">
+              <li ng-repeat="joiner in activityDetail.joiners"><span class="cover"><img src="{{joiner.cover}}"></span><span class="name">{{joiner.name}}</span></li>
+            </ul>
+            <p ng-if="activityDetail.joinersCnt > 5">···</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  <div class="detail-bottom">
+    <div class="bottom-item fl price"><i>{{activityDetail.fee}}</i>大洋</div>
+    <div class="bottom-item fr" ng-click="apply()" ng-show="!isLogin || (isLogin&& !activityDetail.isApplied)">报名报名</div>
+    <div class="bottom-item fr" ng-show="activityDetail.isApplied && activityDetail.permission == 1">审核审核</div>
+    <div class="bottom-item fr" ng-show="activityDetail.isApplied && activityDetail.permission == 2">报名成功</div>
+    <div class="bottom-item fr" ng-show="activityDetail.isApplied && activityDetail.permission == 3">报名失败</div>
+  </div>
+</ion-view>

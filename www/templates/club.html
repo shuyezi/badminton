@@ -1,19 +1,24 @@
-<ion-view view-title="{{clubs.name}}">
+<ion-view view-title="{{clubs.name}}" id="clubsPage">
   <ion-nav-buttons side="right">
     <a class="button" href="#/account">我</a>
   </ion-nav-buttons>
   <ion-content>
-    <div class="list-item" ng-repeat="club in clubs.list">
-      <div ng-include="'clubItemTemp'"></div>
+    <div class="padding">
+      <div class="club-item" ng-repeat="club in clubs.list">
+        <div ng-include="'clubItemTemp'"></div>
+      </div>
     </div>
   </ion-content>
   <div class="bottom-button" ng-click="create();">创建俱乐部</div>
 </ion-view>
 
-<script id="model" type="text/ng-template">
-  <div class="modal" style="width:94%; height:80%; left:3%; top:10%; bottom:10%; right: 3%; min-height:80%;">
+<script id="clubCreateModel" type="text/ng-template">
+  <div class="modal" id="clubModel">
     <ion-header-bar>
-      <h1 class="title">创建俱乐部</h1>
+      <div class="buttons">
+        <button class="button" ng-click="close()">关</button>
+      </div>
+      <h1 class="title">新建俱乐部</h1>
     </ion-header-bar>
     <ion-content>
       <form name="form">
@@ -38,7 +43,32 @@
   </div>
 </script>
 
-<script type="text/ng-template" id="clubItemTemp">
+<script id="clubCreateModels" type="text/ng-template">
+  <div class="model" id="clubModel">
+    <ion-header-bar>
+      <div class="buttons">
+        <button class="button" ng-click="close()">关</button>
+      </div>
+      <h1 class="title">新建俱乐部</h1>
+    </ion-header-bar>
+    <ion-content>
+    123
+    </ion-content>
+  </div>
+</script>
+
+<script id="clubItemTemp" type="text/ng-template">
+  <a href="#/club/{{club.id}}">
+    <img class="cover" src="{{club.cover}}" />
+    <div class="msg">
+      <h2 class="text-overflow" ng-if="club.name">{{club.name}}</h2>
+      <p ng-if="club.area">{{club.area}}</p>
+      <p ng-if="club.time">{{club.time}}</p>
+    </div>
+  </a>
+</script>
+
+<script type="text/ng-template" id="clubItemTemp2">
   <a href="#/club/{{club.id}}">
     <img src="{{club.cover}}" />
     <div class="list-msg">

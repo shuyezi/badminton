@@ -1,0 +1,123 @@
+#clubsPage{
+	.club-item{
+		position: relative;
+		overflow: hidden;
+		min-height: 100px;
+		margin-bottom: 10px;
+		a{
+			text-decoration: none;
+		}
+		&:last-child{
+			margin-bottom: 0;
+			.msg{
+				border-bottom: 0;
+			}
+		}
+		.cover{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100px;
+			height: 100px;
+			overflow: hidden;
+		}
+		.msg{
+			padding-left: 110px;
+			border-bottom: solid 1px @borderColor;
+			min-height: 110px;
+			>h2{
+				font-weight: bold;
+				margin: 0;
+				font-family: "Times New Roman", Georgia, Serif;
+				font-size: 16px;
+				height: 18px;
+				line-height: 18px;
+				.text-overflow();
+			}
+			>p{
+				font-size: 10px;
+				height: 12px;
+				line-height: 12px;
+				color: #666666;
+				margin-bottom: 0;
+				margin-top: 5px;
+				.text-overflow();
+			}
+		}
+	}
+	.bottom-button{
+		position: fixed;
+		height: 40px;
+		line-height: 40px;
+		font-size: 18px;
+		font-weight: bold;
+		width: 100%;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+		background-color: @buttonColor;
+		color: #fff;
+		text-align: center;
+	}
+}
+
+#clubDetailPage{
+	.cover{
+		position: relative;
+		padding-top: 42%;
+		overflow: hidden;
+		background-color: rgba(0,0,0,0.5);
+		>img{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+		}
+	}
+	.detail-block{
+		>h2{
+			font-size: 16px;
+			border-left: solid 3px @borderColor;
+			padding-left: 5px;
+			font-weight: bold;
+			color: #333;
+			height: 18px;
+			line-height: 18px;
+			margin: 10px;
+		}
+		>p{
+			line-height: 20px;
+			color: #333;
+			margin: 0 10px 5px 10px;
+			position: relative;
+			padding-left: 12px;
+			&:before{
+				position: absolute;
+				left: 0;
+				top: 6px;
+				height: 8px;
+				width: 8px;
+				background-color: #387ef5;
+				content: '';
+			}
+			&:last-child{ margin-bottom: 15px; }
+			&:first-child{ margin-top: 10px; }
+		}
+	}
+	>.detail-button{
+		position: fixed;
+		height: 40px;
+		line-height: 40px;
+		font-size: 18px;
+		font-weight: bold;
+		width: 100%;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+		background-color: #387ef5;
+		color: #fff;
+		text-align: center;
+	}
+}

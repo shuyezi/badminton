@@ -1,0 +1,16 @@
+<ion-view view-title="注册注册" id="accountLoginPage">
+    <ion-content>
+    	<div class="form-wrap">
+			<form name="form">
+				<div class="list padding">
+					<label class="item item-input"><input type="text" placeholder="{{modelData.username.name}}" ng-model="modelData.username.info"></label>
+					<label class="item item-input"><input type="password" placeholder="{{modelData.password.name}}" ng-model="modelData.password.info"></label>
+					<a class="register-now fr" href="#/login">立即登陆</a>
+				</div>
+				<div class="padding">
+					<button class="button button-block button-positive" ng-click="submitSignin()">好</button>
+				</div>
+			</form>
+		</div>
+    </ion-content>
+</ion-view>

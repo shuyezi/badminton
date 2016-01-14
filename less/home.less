@@ -1,0 +1,41 @@
+#homePage{
+	img{
+		display: block;
+		width: 100%;
+	}
+	.tabs-button{
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		right: 0;
+		height: 50px;
+		line-height: 50px;
+		background-color: #387ef5;
+		> a {
+			text-decoration: none;
+			font-size: 16px;
+			display: block;
+			float: left;
+			width: 50%;
+			height: 100%;
+			text-align: center;
+			color: #fff;
+			font-weight: bold;
+			position: relative;
+			&:last-child{
+				float: right;
+				&:before{
+					position: absolute;
+					left: 0;
+					top: 50%;
+					width: 1px;
+					height: 30px;
+					content: "";
+					.transform(translate3d(-50%, -50%, 0));
+					background-color: rgba(255, 255, 255, 0.5);
+				}
+			}
+		}
+	}
+}
