@@ -1,54 +1,5 @@
 angular.module('badminton.services', [])
 
-.factory('Chats', function() {
-  // Might use a resource here that returns a JSON array
-
-  // Some fake testing data
-  var chats = [{
-    id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
-  }];
-
-  return {
-    all: function() {
-      return chats;
-    },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
-        }
-      }
-      return null;
-    }
-  };
-})
-
 .factory('Home', function() {
   var data;
 
@@ -712,6 +663,7 @@ angular.module('badminton.services', [])
     list: [
       {
         id: 1,
+        isPrivate: 1,
         name: "源深俱乐部",
         time: "每周日上午10点",
         area: "浦东浦东",
@@ -721,6 +673,7 @@ angular.module('badminton.services', [])
       },
       {
         id: 2,
+        isPrivate: 1,
         name: "复旦俱乐部",
         time: "每周六全天",
         area: "徐汇徐汇",
@@ -730,6 +683,7 @@ angular.module('badminton.services', [])
       },
       {
         id: 3,
+        isPrivate: 1,
         name: "傻逼俱乐部",
         time: "整个礼拜",
         area: "徐汇徐汇",

@@ -80,46 +80,6 @@ angular.module('badminton', ['ionic', 'badminton.controllers', 'badminton.servic
       templateUrl: 'templates/register.html',
       controller: 'RegisterCtrl'
     });
-  // .state('account', {
-  //   url: '/account',
-  //   templateUrl: 'templates/account.html',
-  //   controller: 'AccountCtrl'
-  // })
-  // .state('account-activity', {
-  //   url: '/account/activity',
-  //   templateUrl: 'templates/account-activity.html',
-  //   controller: 'AccountActivityCtrl'
-  // })
-  // .state('account-club', {
-  //   url: '/account/club',
-  //   templateUrl: 'templates/account-club.html',
-  //   controller: 'AccountClubCtrl'
-  // })
-  // .state('home', {
-  //   url: '/',
-  //   templateUrl: 'templates/home.html',
-  //   controller: 'HomeCtrl'
-  // })
-  // .state('club', {
-  //   url: '/club',
-  //   templateUrl: 'templates/club.html',
-  //   controller: 'ClubCtrl'
-  // })
-  // .state('club-detail', {
-  //   url: '/club/:clubId',
-  //   templateUrl: 'templates/club-detail.html',
-  //   controller: 'ClubDetailCtrl'
-  // })
-  // .state('activity', {
-  //   url: '/activity',
-  //   templateUrl: 'templates/activity.html',
-  //   controller: 'ActivityCtrl'
-  // })
-  // .state('activity-detail', {
-  //   url: '/activity/:activityId',
-  //   templateUrl: 'templates/activity-detail.html',
-  //   controller: 'ActivityDetailCtrl'
-  // });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/');

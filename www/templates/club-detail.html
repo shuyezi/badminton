@@ -15,7 +15,7 @@
       <div class="list-wrap">
         <ion-list>
             <ion-item class="activity-item" ng-repeat="activity in detail.activity">
-              <div ng-include="'acvitityItemTemp'"></div>
+              <div ng-include src="activityItemTemp"></div>
             </ion-item>
         </ion-list>
       </div>
@@ -106,3 +106,6 @@
     </ion-content>
   </div>
 </script>
+
+<!-- ng-includes -->
+<!-- <div ng-include src="components/acvitityItem.html"></div> -->

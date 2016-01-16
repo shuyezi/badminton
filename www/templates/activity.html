@@ -4,25 +4,13 @@
   </ion-nav-buttons>
   <ion-content>
     <ion-list>
-        <ion-item class="activity-item" ng-repeat="activity in activitys.list">
-          <div ng-include="'acvitityItemTemp'"></div>
-        </ion-item>
+      <ion-item class="activity-item" ng-repeat="activity in activitys.list">
+        <div ng-include src="activityItemTemp"></div>
+      </ion-item>
     </ion-list>
   </ion-content>
   <div class="bottom-button" ng-click="create();">创建活动</div>
 </ion-view>
-
-<script type="text/ng-template" id="acvitityItemTemp">
-  <a href="#/activity/{{activity.id}}">
-    <div class="cover"><img ng-src="{{activity.cover}}" ng-if="activity.cover"></div>
-    <div class="msg">
-      <h2>{{activity.desc}}</h2>
-      <p ng-if="activity.area">{{activity.area}}</p>
-      <p ng-if="activity.time">{{activity.time}}<em ng-if="activity.joinersCnt > 0">已报: {{activity.joinersCnt}}/{{activity.joinersLimit}}</em></p>
-      <!-- /*<div class="more">看详情</div>*/ -->
-    </div>
-  </a>
-</script>
 
 <script id="activityCreateModel" type="text/ng-template">
   <div class="modal" id="activityModal">
@@ -74,3 +62,5 @@
     </ion-content>
   </div>
 </script>
+
+<!-- ng-includes -->

@@ -5,7 +5,7 @@
   <ion-content>
     <div class="padding">
       <div class="club-item" ng-repeat="club in clubs.list">
-        <div ng-include="'clubItemTemp'"></div>
+        <div ng-include src="clubItemTemp"></div>
       </div>
     </div>
   </ion-content>
@@ -55,34 +55,4 @@
     123
     </ion-content>
   </div>
-</script>
-
-<script id="clubItemTemp" type="text/ng-template">
-  <a href="#/club/{{club.id}}">
-    <img class="cover" src="{{club.cover}}" />
-    <div class="msg">
-      <h2 class="text-overflow" ng-if="club.name">{{club.name}}</h2>
-      <p ng-if="club.area">{{club.area}}</p>
-      <p ng-if="club.time">{{club.time}}</p>
-    </div>
-  </a>
-</script>
-
-<script type="text/ng-template" id="clubItemTemp2">
-  <a href="#/club/{{club.id}}">
-    <img src="{{club.cover}}" />
-    <div class="list-msg">
-      <h2 class="text-overflow">{{club.name}}</h2>
-      <p>
-        <em ng-if="club.area">{{club.area}}</em>
-        <em ng-if="club.members">{{club.members>200 ? "200+" : club.members}}</em>
-        <em class="extra" ng-if="club.intro">{{club.intro}}</em>
-      </p>
-    </div>
-    <div class="todetail">
-      <i class="ion-ios-arrow-right"></i>
-      <i class="ion-ios-arrow-right"></i>
-      <i class="ion-ios-arrow-right"></i>
-    </div>
-  </a>
 </script>

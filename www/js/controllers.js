@@ -17,6 +17,9 @@ angular.module('badminton.controllers', [])
   }
 })
 .controller('ActivityCtrl', function($scope, $ionicModal, $ionicPopup, Activity){
+  //for ng-include
+  $scope.activityItemTemp = window.config.tempComponents.activityItemBig;
+
   //数据初始化
   $scope.activitys = Activity;
   $scope.modelData = window.config.activityModelData;
@@ -65,6 +68,9 @@ angular.module('badminton.controllers', [])
   }
 })
 .controller('ClubCtrl', function($scope, $ionicModal, Clubs){
+  //for ng-include
+  $scope.clubItemTemp = window.config.tempComponents.clubItemTempSmall;
+
   $scope.clubs = Clubs;
   $scope.modelData = window.config.clubsModelData;
 
@@ -88,6 +94,9 @@ angular.module('badminton.controllers', [])
   }
 })
 .controller('ClubDetailCtrl', function($scope, $stateParams, $ionicModal, $ionicPopup, ClubDetail){
+  //for ng-include
+  $scope.activityItemTemp = window.config.tempComponents.activityItemBig;
+
   var clubIndex = 'c' + $stateParams.clubId;
   $scope.detail = ClubDetail[clubIndex];
   $scope.isLogin = true;
@@ -216,6 +225,9 @@ angular.module('badminton.controllers', [])
   }
 })
 .controller('AccountActivityCtrl', function($scope, $ionicPopup, $ionicModal, $ionicTabsDelegate, AccountActivity){
+  //for ng-includes
+  $scope.activityItemTemp = window.config.tempComponents.activityItemSmall;
+
   $scope.items = [
     { txt: "即将开始", type: 1 },
     { txt: "已结束", type: 2 }
@@ -287,6 +299,9 @@ angular.module('badminton.controllers', [])
   }
 })
 .controller('AccountClubCtrl', function($scope, $ionicModal, AccountClub){
+  //for ng-include
+  $scope.clubItemTemp = window.config.tempComponents.clubItemTempSmall;
+
   $scope.accountClubs = AccountClub;
 
   //弹层模型

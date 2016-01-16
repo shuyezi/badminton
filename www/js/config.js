@@ -1,4 +1,9 @@
 window.config = {
+	tempComponents: {
+		activityItemBig: "templates/components/activityItem-big.html",
+		activityItemSmall: "templates/components/activityItem-small.html",
+		clubItemTempSmall: "templates/components/clubItem-small.html"
+	},
 	activityModelData: {
 		theme: {
 			name: "活动主题",
