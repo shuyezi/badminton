@@ -6,9 +6,14 @@
 		background-color: rgba(0,0,0,0.5);
 		>img{
 			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
+			left: 50%;
+			top: 50%;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			margin-top: -30px;
+			margin-left: -30px;
+			background-color: rgba(255, 255, 255, 0.5);
 		}
 	}
 	.account-item{
@@ -61,5 +66,49 @@
 		color: purple;
 		font-size: 10px;
 		padding: 5px 5px 5px 0;
+	}
+}
+
+#accountInfoPage{
+	.info-wrap{
+		border-top: solid 1px @borderColor;
+		border-bottom: solid 1px @borderColor;
+		padding: 0 10px;
+		margin-top: 10px;
+	}
+	.info-item{
+		position: relative;
+		width: 100%;
+		border-bottom: solid 1px @borderColor;
+		>span{
+			position: absolute;
+			width: 20%;
+			height: 16px;
+			line-height: 16px;
+			top: 50%;
+			left: 4px;
+			margin-top: -8px;
+		}
+		&:last-child{
+			border-bottom: 0;
+		}
+	}
+	.avatar{
+		height: 68px;
+		>img{
+			width: 60px;
+			height: 60px;
+			border-radius: 2px;
+			position: absolute;
+			top: 4px;
+			right: 0;
+		}
+	}
+	.name{
+		height: 34px;
+		line-height: 34px;
+		>p{
+			float: right;
+		}
 	}
 }

@@ -3,7 +3,6 @@
     <img src="{{home.cover.src}}" />
   </ion-content>
   <div class="tabs-button">
-	<a href="#/activity">活动列表</a>
-	<a href="#/club">俱乐部列表</a>
+	<a href="#{{enter.href}}" ng-repeat="enter in home.enters">{{enter.name}}</a>
   </div>
 </ion-view>

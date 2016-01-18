@@ -70,6 +70,11 @@ angular.module('badminton', ['ionic', 'badminton.controllers', 'badminton.servic
       templateUrl: 'templates/account-club.html',
       controller: 'AccountClubCtrl'
     })
+    .state('account-info', {
+      url: '/account/info',
+      templateUrl: 'templates/account-info.html',
+      controller: 'AccountInfoCtrl'
+    })
     .state('login', {
       url: '/login',
       templateUrl: 'templates/login.html',
