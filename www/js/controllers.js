@@ -6,15 +6,14 @@ angular.module('badminton.controllers', [])
   }, function(){});
 })
 .controller('LoginCtrl', function($scope, $rootScope, $state){
-  $scope.modelData = window.badminton.config.loginModelData;
-  $scope.submitSignin = function(){
+  $scope.submit = function(loginData){
     $rootScope.isLogin = true;
     $state.go('account');
+    console.log('loginData', loginData);
   }
 })
 .controller('RegisterCtrl', function($scope, $ionicHistory){
-  $scope.modelData = window.badminton.config.registerModelData;
-  $scope.submitSignin = function(){
+  $scope.submit = function(){
     // $ionicHistory.goBack();
   }
 })
@@ -24,38 +23,54 @@ angular.module('badminton.controllers', [])
 
   //数据初始化
   Activity().then(function(response){
-    $scope.activitys = response;
+    $scope.activitys = response.activitys;
+    $scope.clubNames = response.clubNames;
   }, function(){});
-  $scope.modelData = window.badminton.config.activityModelData;
+
+  $scope.activity = {
+    number: window.badminton.utils.generateArray(99),
+    type: window.badminton.config.activityType
+  };
+
+  $scope.status = window.badminton.config.status.create;
 
   //弹层模型
-  $ionicModal.fromTemplateUrl('activityCreateModel', {
+  $ionicModal.fromTemplateUrl('activityModel', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
-    $scope.activityCreateModel = modal;
+    $scope.activityModel = modal;
   });
   // 当隐藏的模型时执行动作
   $scope.$on('modal.hide', function() { /* 执行动作 */ });
-  // 当隐藏的模型时执行动作
+  // 当展示的模型时执行动作
   $scope.$on('modal.show', function() { /* 执行动作 */ });
 
   $scope.create = function(){
-    $scope.activityCreateModel.show();
+    $scope.activityModel.show();
+  }
+  $scope.edit = function(){
+    $scope.status = window.badminton.config.status.edit;
+    $scope.activityModel.show();
   }
   $scope.close = function(){
-    $scope.activityCreateModel.hide(); 
+    $scope.activityModel.hide(); 
+  }
+
+  $scope.submit = function(activityData){
+    console.log('activityData', activityData, $scope.status);
   }
   $scope.loadMore = function(){
-    // $scope.$broadcast('scroll.refreshComplete');
-    // $http.get('/activitys')
-    //   .success(function(newItems) {
-    //     $scope.items = newItems;
-    //   })
-    //   .finally(function() {
-    //     // Stop the ion-refresher from spinning
-    //     $scope.$broadcast('scroll.refreshComplete');
-    //   });
+  /*$scope.$broadcast('scroll.refreshComplete');
+    $http.get('/activitys')
+      .success(function(newItems) {
+        $scope.items = newItems;
+      })
+      .finally(function() {
+        // Stop the ion-refresher from spinning
+        $scope.$broadcast('scroll.refreshComplete');
+      });
+  */
   }
 })
 .controller('ActivityDetailCtrl', function($scope, $ionicModal, $ionicPopup, $stateParams, ActivityDetail){
@@ -87,17 +102,23 @@ angular.module('badminton.controllers', [])
   //for ng-include
   $scope.clubItemTemp = window.badminton.config.tempComponents.clubItemTempSmall;
 
+  // 数据初始化
   Clubs().then(function(response){
     $scope.clubs = response;
   });
-  $scope.modelData = window.badminton.config.clubsModelData;
+
+  $scope.club = {
+    number: window.badminton.utils.generateArray(999)
+  }
+
+  $scope.status = window.badminton.config.status.create;
 
   //弹层模型
-  $ionicModal.fromTemplateUrl('clubCreateModel', {
+  $ionicModal.fromTemplateUrl('clubModel', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
-    $scope.clubCreateModel = modal;
+    $scope.clubModel = modal;
   });
   // 当隐藏的模型时执行动作
   $scope.$on('modal.hide', function() { /* 执行动作 */ });
@@ -105,10 +126,17 @@ angular.module('badminton.controllers', [])
   $scope.$on('modal.show', function() { /* 执行动作 */ });
 
   $scope.create = function(){
-    $scope.clubCreateModel.show();
+    $scope.clubModel.show();
+  }
+  $scope.edit = function(){
+    $scope.status = window.badminton.config.status.edit;
+    $scope.clubModel.show();
   }
   $scope.close = function(){
-    $scope.clubCreateModel.hide(); 
+    $scope.clubModel.hide(); 
+  }
+  $scope.submit = function(clubData){
+    console.log('clubData', clubData, $scope.status);
   }
 })
 .controller('ClubDetailCtrl', function($scope, $stateParams, $ionicModal, $ionicPopup, ClubDetail){
@@ -119,29 +147,12 @@ angular.module('badminton.controllers', [])
   ClubDetail({id: clubIndex}).then(function(response){
     $scope.detail = response;
 
-    $scope.modelData = {
-      name: {
-        name: "俱乐部名称",
-        info: $scope.detail.name
-      },
-      time: {
-        name: "成立时间",
-        info: $scope.detail.time
-      },
-      area: {
-        name: "活动范围",
-        info: $scope.detail.area
-      },
-      number: {
-        name: "成员人数",
-        info: $scope.detail.members,
-        list: (function(){ var arr=[]; for(var i=0; i<998; i++){ arr[i] = i+2; }; return arr; })(),
-        tip: "请选择成员人数"
-      },
-      extra: {
-        name: "简介",
-        info: $scope.detail.intro
-      }
+    $scope.club = {
+      name: $scope.detail.name,
+      time: $scope.detail.time,
+      area: $scope.detail.area,
+      number: window.badminton.utils.generateArray(999),
+      intro: $scope.detail.intro
     }
   }, function(){});
   // $scope.detail = ClubDetail[clubIndex];
@@ -154,20 +165,14 @@ angular.module('badminton.controllers', [])
   }).then(function(modal) {
     $scope.joinClubModel = modal;
   });
-  // 当隐藏的模型时执行动作
-  $scope.$on('modal.hide', function() { /* 当隐藏的模型时执行动作 */ });
-  $scope.$on('modal.show', function() { /* 当展示的模型时执行动作 */ });
 
   //弹层模型
-  $ionicModal.fromTemplateUrl('clubEditModel', {
+  $ionicModal.fromTemplateUrl('clubModel', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
-    $scope.clubEditModel = modal;
+    $scope.clubModel = modal;
   });
-  // 当隐藏的模型时执行动作
-  $scope.$on('modal.hide', function() { /* 当隐藏的模型时执行动作 */ });
-  $scope.$on('modal.show', function() { /* 当展示的模型时执行动作 */ });
   
   //加入俱乐部理由弹层
   $scope.join = function(){
@@ -189,7 +194,8 @@ angular.module('badminton.controllers', [])
     });
   }
   //提交申请
-  $scope.apply = function(){
+  $scope.submitApply = function(applyData){
+    console.log('applyData', applyData);
     $ionicPopup.confirm({
       title: '是否确认申请？'
     }).then(function(res) {
@@ -203,10 +209,13 @@ angular.module('badminton.controllers', [])
   }
   //编辑俱乐部
   $scope.edit = function(){
-    $scope.clubEditModel.show();
+    $scope.clubModel.show();
   }
   $scope.closeEditor = function(){
-    $scope.clubEditModel.hide();
+    $scope.clubModel.hide();
+  }
+  $scope.submit = function(club){
+    console.log('club', club);
   }
 })
 .controller('AccountCtrl', function($scope, $rootScope, $ionicPopup, $ionicModal){
@@ -246,7 +255,7 @@ angular.module('badminton.controllers', [])
     $scope.isLogin = true;
   }
 })
-.controller('AccountActivityCtrl', function($scope, $ionicPopup, $ionicModal, $ionicTabsDelegate, AccountActivity){
+.controller('AccountActivityCtrl', function($scope, $ionicPopup, $ionicModal, $ionicTabsDelegate, AccountActivity, UserList){
   //for ng-includes
   $scope.activityItemTemp = window.badminton.config.tempComponents.activityItemSmall;
 
@@ -275,8 +284,9 @@ angular.module('badminton.controllers', [])
   //查看名单
   $scope.checkList = function(id){
     event.preventDefault();
-    $scope.modelData = window.badminton.config.joinersListModelData["a"+id];
-    console.log($scope.modelData);
+    UserList().then(function(response){
+      $scope.userList = response["a"+id];  
+    }, function(){});
     $scope.joinersListModel.show();
   }
   $scope.close = function(){
@@ -323,7 +333,7 @@ angular.module('badminton.controllers', [])
     }
   }
 })
-.controller('AccountClubCtrl', function($scope, $ionicModal, AccountClub){
+.controller('AccountClubCtrl', function($scope, $ionicModal, AccountClub, UserList){
   //for ng-include
   $scope.clubItemTemp = window.badminton.config.tempComponents.clubItemTempSmall;
 
@@ -347,7 +357,10 @@ angular.module('badminton.controllers', [])
   //查看名单
   $scope.checkList = function(id){
     event.preventDefault();
-    $scope.modelData = window.badminton.config.clubMembersListModelData["c"+id];
+    // $scope.modelData = window.badminton.config.clubMembersListModelData["c"+id];
+    UserList().then(function(response){
+      $scope.userList = response["c"+id];  
+    }, function(){});
     $scope.clubMembersListModel.show();
   }
   $scope.close = function(){

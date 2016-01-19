@@ -13,7 +13,6 @@ angular.module('badminton.services', [])
     return window.badminton.utils.get(_url, data);
   }
 })
-
 .factory('ClubDetail', function(){
   var _url = window.badminton.config.reqApi.clubDetail;
   return function(data){
@@ -51,6 +50,13 @@ angular.module('badminton.services', [])
 
 .factory('UserInfo', function(){
   var _url = window.badminton.config.reqApi.userInfo;
+  return function(data){
+    return window.badminton.utils.get(_url, data);
+  }
+})
+
+.factory('UserList', function(){
+  var _url = window.badminton.config.reqApi.userList;
   return function(data){
     return window.badminton.utils.get(_url, data);
   }

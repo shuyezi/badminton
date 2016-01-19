@@ -5,7 +5,7 @@
 
 <?php
 
-	$data = array(
+	$activitys = array(
 		"name" => "活动列表",
 		"list" => array(
 			array(
@@ -71,6 +71,10 @@
 			)
 		)
 	);
+
+	$clubNames = array("源深俱乐部", "天山俱乐部", "动一动俱乐部", "傻逼俱乐部");
+
+	$data = array("activitys" => $activitys, "clubNames" => $clubNames);
 
 	echo Json::run($data);
 

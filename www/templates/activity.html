@@ -3,6 +3,10 @@
     <a class="button" href="#/account">我</a>
   </ion-nav-buttons>
   <ion-content>
+    <ion-refresher
+      pulling-text="loading more..."
+      on-refresh="loadMore()">
+    </ion-refresher>
     <ion-list>
       <ion-item class="activity-item" ng-repeat="activity in activitys.list">
         <div ng-include src="activityItemTemp"></div>
@@ -12,7 +16,7 @@
   <div class="bottom-button" ng-click="create();">创建活动</div>
 </ion-view>
 
-<script id="activityCreateModel" type="text/ng-template">
+<script id="activityModel" type="text/ng-template">
   <div class="modal" id="activityModal">
     <ion-header-bar>
       <div class="buttons">
@@ -23,40 +27,40 @@
     <ion-content>
       <form name="form">
         <div class="list padding" style="margin-bottom: 0;">
-          <label class="item item-input"><input type="text" placeholder="{{modelData.theme.name}}" ng-model="modelData.theme.info"></label>
-          <label class="item item-input"><input type="text" placeholder="{{modelData.time.name}}" ng-model="modelData.time.info"></label>
-          <label class="item item-input"><input type="text" placeholder="{{modelData.address.name}}" ng-model="modelData.address.info"></label>
+          <label class="item item-input"><input type="text" placeholder="活动主题" ng-model="activity.theme"></label>
+          <label class="item item-input"><input type="text" placeholder="活动时间" ng-model="activity.time"></label>
+          <label class="item item-input"><input type="text" placeholder="活动地点" ng-model="activity.address"></label>
           <label class="item item-select item-stacked-label">
-            <select ng-options="list for list in modelData.number.list" ng-model="modelData.number.info">
-              <option value="">{{modelData.number.tip}}</option>
+            <select ng-options="list for list in activity.number" ng-model="activity.number">
+              <option value="">请选择参与活动人数</option>
             </select>
           </label>
-          <label class="item item-input"><input type="text" placeholder="{{modelData.fee.name}}" ng-model="modelData.fee.info"></label>
+          <label class="item item-input"><input type="text" placeholder="活动费用" ng-model="activity.fee"></label>
           <label class="item item-select item-stacked-label">
-            <select ng-options="list for list in modelData.club.list" ng-model="modelData.club.info">
-              <option value="">{{modelData.club.tip}}</option>
+            <select ng-options="list for list in clubNames" ng-model="activity.club">
+              <option value="">请选择俱乐部</option>
             </select>
           </label>
           <label class="item item-select item-stacked-label">
-            <select ng-options="list for list in modelData.type.list" ng-model="modelData.type.info">
-              <option value="">{{modelData.type.tip}}</option>
+            <select ng-options="list for list in activity.type" ng-model="activity.type">
+              <option value="">请选择活动类型</option>
             </select>
           </label>
           <label class="item item-input">
             <any class="input-label">是否公开</any>
             <any class="toggle">
-              <input type="checkbox" ng-model="modelData.open.info">
+              <input type="checkbox" ng-model="activity.open">
               <any class="track">
                 <any class="handle"></any>
               </any>
             </any>
           </label>
           <label class="item item-input">
-            <textarea rows="5" cols="20" placeholder="备注"></textarea>
+            <textarea rows="5" cols="20" placeholder="备注" ng-model="activity.extra"></textarea>
           </label>
         </div>
         <div class="padding">
-          <button class="button button-block button-positive" ng-click="checkForm(modelData)">好</button>
+          <button class="button button-block button-positive" ng-click="submit(activity)">好</button>
         </div>
       </form>
     </ion-content>

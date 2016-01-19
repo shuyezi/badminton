@@ -40,43 +40,31 @@
     <ion-content>
       <form name="form">
         <div class="list padding" style="margin-bottom:0;">
-          <label class="item item-input"><input type="text" placeholder="{{modelData.applicant.name}}" ng-model="modelData.applicant.info"></label>
+          <label class="item item-input"><input type="text" placeholder="申请人姓名" ng-model="applicant.name"></label>
           <label class="item item-input">
             <any class="input-label" style='width:auto;'>男</any>
             <any class="toggle">
-              <input type="checkbox" ng-model="modelData.sex.info">
+              <input type="checkbox" ng-model="applicant.sex">
               <any class="track">
                 <any class="handle"></any>
               </any>
             </any>
             <any class="input-label">女</any>
           </label>
-          <label class="item item-input"><input type="text" placeholder="{{modelData.experience.name}}" ng-model="modelData.experience.info"></label>
+          <label class="item item-input"><input type="text" placeholder="球龄" ng-model="applicant.experience"></label>
           <label class="item item-input">
-            <textarea rows="5" cols="20" placeholder="{{modelData.reason.name}}">{{modelData.reason.info}}</textarea>
+            <textarea rows="5" cols="20" placeholder="写点儿理由">{{applicant.reason}}</textarea>
           </label>
         </div>
         <div class="padding">
-          <button class="button button-block button-positive" ng-click="apply(modelData)">好</button>
+          <button class="button button-block button-positive" ng-click="submitApply(applicant)">好</button>
         </div>
       </form>
     </ion-content>
   </div>
 </script>
 
-<script type="text/ng-template" id="acvitityItemTemp">
-  <a href="#/activity/{{activity.id}}">
-    <div class="cover"><img ng-src="{{activity.cover}}" ng-if="activity.cover"></div>
-    <div class="msg">
-      <h2>{{activity.desc}}</h2>
-      <p ng-if="activity.area">{{activity.area}}</p>
-      <p ng-if="activity.time">{{activity.time}}<em ng-if="activity.joinersCnt > 0">已报: {{activity.joinersCnt}}/{{activity.joinersLimit}}</em></p>
-      <!-- /*<div class="more">看详情</div>*/ -->
-    </div>
-  </a>
-</script>
-
-<script id="clubEditModel" type="text/ng-template">
+<script id="clubEditModels" type="text/ng-template">
   <div class="modal" id="clubModel">
     <ion-header-bar>
       <div class="buttons">
@@ -100,6 +88,37 @@
           </label>
           <div class="padding">
             <button class="button button-block button-positive" ng-click="checkForm(modelData)">好</button>
+          </div>
+        </div>
+      </form>
+    </ion-content>
+  </div>
+</script>
+
+<script id="clubModel" type="text/ng-template">
+  <div class="modal" id="clubModel">
+    <ion-header-bar>
+      <div class="buttons">
+        <button class="button" ng-click="closeEditor()">关</button>
+      </div>
+      <h1 class="title">编辑俱乐部</h1>
+    </ion-header-bar>
+    <ion-content>
+      <form name="form">
+        <div class="list padding">
+          <label class="item item-input"><input type="text" placeholder="俱乐部名称" ng-model="club.name"></label>
+          <label class="item item-input"><input type="text" placeholder="成立时间" ng-model="club.time"></label>
+          <label class="item item-input"><input type="text" placeholder="活动范围" ng-model="club.area"></label>
+          <label class="item item-select item-stacked-label">
+            <select ng-options="list for list in club.number" ng-model="club.number">
+              <option value="">请选择成员人数</option>
+            </select>
+          </label>
+          <label class="item item-input">
+            <textarea rows="5" cols="20" placeholder="简介" ng-model="club.intro"></textarea>
+          </label>
+          <div class="padding">
+            <button class="button button-block button-positive" ng-click="submit(club)">好</button>
           </div>
         </div>
       </form>

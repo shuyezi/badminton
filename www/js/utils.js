@@ -34,5 +34,10 @@ window.badminton.utils = {
 	getApiUri: function(url){
 		console.log('url', url);
 		return window.badminton.config.domain + url;
+	},
+	generateArray: function(len){
+		var arr=[]; 
+		for(var i = 0; i < len; i++){ arr[i] = i + 1; };
+		return arr;
 	}
 }
