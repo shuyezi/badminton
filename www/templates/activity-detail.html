@@ -8,16 +8,16 @@
       <div class="wrapper">
         <div class="cover"><img ng-src="{{activityDetail.cover}}" ng-if="activityDetail.cover"></div>
         <div class="msg">
-          <h2>{{activityDetail.desc}}</h2>
+          <h2>{{activityDetail.theme}}</h2>
           <p ng-if="activityDetail.time">{{activityDetail.time}}</p>
           <div class="area" ng-if="activityDetail.area">{{activityDetail.area}}<i class="fr ion-ios-arrow-forward"></i></div>
-          <p ng-if="activityDetail.extra" class="extra">{{activityDetail.extra}}</p>
-          <div class="join-people" ng-if="activityDetail.joinersCnt > 0">
-            <h3>报名的人<i>({{activityDetail.joinersCnt}}/{{activityDetail.joinersLimit}})</i></h3>
-            <ul ng-class="{true: 'shorter', false: ''}[activityDetail.joinersCnt > 5]">
+          <p ng-if="activityDetail.intro" class="intro">{{activityDetail.intro}}</p>
+          <div class="join-people" ng-if="activityDetail.joinersCurrent > 0">
+            <h3>报名的人<i>({{activityDetail.joinersCurrent}}/{{activityDetail.joinersLimit}})</i></h3>
+            <ul ng-class="{true: 'shorter', false: ''}[activityDetail.joinersCurrent > 5]">
               <li ng-repeat="joiner in activityDetail.joiners"><span class="cover"><img src="{{joiner.cover}}"></span><span class="name">{{joiner.name}}</span></li>
             </ul>
-            <p ng-if="activityDetail.joinersCnt > 5">···</p>
+            <p ng-if="activityDetail.joinersCurrent > 5">···</p>
           </div>
         </div>
       </div>
@@ -25,9 +25,55 @@
   </ion-content>
   <div class="detail-bottom">
     <div class="bottom-item fl price"><i>{{activityDetail.fee}}</i>大洋</div>
-    <div class="bottom-item fr" ng-click="apply()" ng-show="!isLogin || (isLogin&& !activityDetail.isApplied)">报名报名</div>
-    <div class="bottom-item fr" ng-show="activityDetail.isApplied && activityDetail.permission == 1">审核审核</div>
-    <div class="bottom-item fr" ng-show="activityDetail.isApplied && activityDetail.permission == 2">报名成功</div>
-    <div class="bottom-item fr" ng-show="activityDetail.isApplied && activityDetail.permission == 3">报名失败</div>
+    <div class="bottom-item fr" ng-click="apply()" ng-show="!isLogin || (isLogin && !activityDetail.isOwner && !activityDetail.isApplied)">报名报名</div>
+    <div class="bottom-item fr" ng-click="edit()" ng-show="isLogin && activityDetail.isOwner">编辑活动</div>
+    <div class="bottom-item fr" ng-show="isLogin && activityDetail.isApplied && activityDetail.permission == 1">等待审核</div>
+    <div class="bottom-item fr" ng-show="isLogin && activityDetail.isApplied && activityDetail.permission == 2">报名成功</div>
+    <div class="bottom-item fr" ng-show="isLogin && activityDetail.isApplied && activityDetail.permission == 3">报名失败</div>
   </div>
 </ion-view>
+
+<script id="activityModel" type="text/ng-template">
+  <div class="modal" id="activityModal">
+    <ion-header-bar>
+      <div class="buttons">
+        <button class="button" ng-click="close()">关</button>
+      </div>
+      <h1 class="title">新建活动</h1>
+    </ion-header-bar>
+    <ion-content>
+      <form name="form">
+        <div class="list padding" style="margin-bottom: 0;">
+          <label class="item item-input"><input type="text" placeholder="活动主题" ng-model="activity.theme"></label>
+          <label class="item item-input"><input type="text" placeholder="活动时间" ng-model="activity.time"></label>
+          <label class="item item-input"><input type="text" placeholder="活动地点" ng-model="activity.area"></label>
+          <label class="item item-select item-stacked-label">
+            <select ng-options="list for list in modelSelect.number" ng-model="activity.joinersLimit"></select>
+          </label>
+          <label class="item item-input"><input type="text" placeholder="活动费用" ng-model="activity.fee"></label>
+          <label class="item item-select item-stacked-label">
+            <select ng-options="list for list in clubNames" ng-model="activity.club"></select>
+          </label>
+          <label class="item item-select item-stacked-label">
+            <select ng-options="list for list in modelSelect.type" ng-model="activity.type"></select>
+          </label>
+          <label class="item item-input">
+            <any class="input-label">是否公开</any>
+            <any class="toggle">
+              <input type="checkbox" ng-model="activity.open">
+              <any class="track">
+                <any class="handle"></any>
+              </any>
+            </any>
+          </label>
+          <label class="item item-input">
+            <textarea rows="5" cols="20" placeholder="备注" ng-model="activity.intro"></textarea>
+          </label>
+        </div>
+        <div class="padding">
+          <button class="button button-block button-positive" ng-click="submit(activity)">好</button>
+        </div>
+      </form>
+    </ion-content>
+  </div>
+</script>

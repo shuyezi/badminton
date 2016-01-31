@@ -774,16 +774,29 @@ body {
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.5);
 }
-#accountPage .cover > img {
+#accountPage .cover > .inner {
   position: absolute;
   left: 50%;
   top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  width: 60px;
+  height: 80px;
+  overflow: hidden;
+}
+#accountPage .cover > .inner > img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  margin-top: -30px;
-  margin-left: -30px;
   background-color: rgba(255, 255, 255, 0.5);
+}
+#accountPage .cover > .inner > .nickname {
+  text-align: center;
+  width: 60px;
+  height: 12px;
+  line-height: 12px;
+  margin-top: 8px;
+  color: #333;
 }
 #accountPage .account-item {
   height: 40px;
@@ -815,10 +828,12 @@ body {
   border-radius: 4px;
   font-size: 18px;
 }
-#accountLoginPage .form-wrap {
+#accountLoginPage .form-wrap,
+#accountResPage .form-wrap {
   margin-top: 30px;
 }
-#accountLoginPage .title {
+#accountLoginPage .title,
+#accountResPage .title {
   font-size: 20px;
   font-weight: bold;
   color: #333;
@@ -828,7 +843,9 @@ body {
   margin: 20px 0 10px 0;
 }
 #accountLoginPage .forget-psd,
-#accountLoginPage .register-now {
+#accountResPage .forget-psd,
+#accountLoginPage .register-now,
+#accountResPage .register-now {
   text-decoration: underline;
   color: purple;
   font-size: 10px;
@@ -872,8 +889,22 @@ body {
   height: 34px;
   line-height: 34px;
 }
-#accountInfoPage .name > p {
+#accountInfoPage .name > .cont {
+  text-align: right;
   float: right;
+}
+#accountInfoPage .submit-button {
+  display: block;
+  text-decoration: none;
+  width: 90%;
+  margin: 30px auto 0;
+  background-color: #387ef5;
+  color: #fff;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  font-size: 18px;
 }
 #accountActivityPage .accountxx-item {
   position: relative;

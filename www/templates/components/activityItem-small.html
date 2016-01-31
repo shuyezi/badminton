@@ -1,12 +1,14 @@
 <a href="#/activity/{{activity.id}}">
   <img class="cover" src="{{activity.cover}}" />
   <div class="msg">
-    <h2 class="text-overflow" ng-if="activity.desc">{{activity.desc}}</h2>
+    <h2 class="text-overflow" ng-if="activity.theme">{{activity.theme}}</h2>
     <p ng-if="activity.area">{{activity.area}}</p>
     <p ng-if="activity.time">{{activity.time}}</p>
-    <div class="list-button" ng-show="!activity.isOver && !activity.isPrivate && !activity.isCanceled" ng-click="cancel(activity)">取消活动</div>
-    <div class="list-button list-cancel" ng-show="!activity.isOver && activity.isPrivate && activity.isCanceled">已取消</div>
-    <div class="list-button" ng-show="!activity.isOver && activity.isPrivate" ng-click="checkList(activity.id)">查看名单</div>
+    <div class="list-button" ng-show="!activity.isOver && activity.isOwner && activity.isCanCanceled" ng-click="cancel(activity)">取消活动</div>
+    <div class="list-button" ng-show="!activity.isOver && !activity.isOwner && activity.permission == 1" ng-click="cancel(activity)">等待审核</div>
+    <div class="list-button" ng-show="!activity.isOver && !activity.isOwner && activity.permission == 2" ng-click="cancel(activity)">取消报名</div>
+    <div class="list-button" ng-show="!activity.isOver && !activity.isOwner && activity.permission == 3" ng-click="cancel(activity)">报名失败</div>
+    <div class="list-button" ng-show="!activity.isOver && activity.isOwner" ng-click="checkList(activity.id)">查看名单</div>
     <div class="list-button list-cancel" ng-show="activity.isOver">已结束</div>
   </div>
 </a>

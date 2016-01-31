@@ -1,0 +1,130 @@
+<ion-view view-title="{{detail.name}}" id="clubDetailPage">
+  <ion-nav-buttons side="right">
+    <a class="button" href="#/account">我</a>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="cover"><img src="" /></div>
+    <div class="detail-block">
+      <p ng-if="detail.area">活动地点：{{detail.area}}</p>
+    	<p ng-if="detail.time">活动时间：{{detail.time}}</p>
+    	<p ng-if="detail.members">成员人数：{{detail.members}}</p>
+    	<p ng-if="detail.intro">简介：{{detail.intro}}</p>
+    </div>
+    <div class="detail-block" style="padding-bottom:10px;" id="activityPage">
+      <h2>活动列表</h2>
+      <div class="list-wrap">
+        <ion-list>
+            <ion-item class="activity-item" ng-repeat="activity in detail.activity">
+              <div ng-include src="activityItemTemp"></div>
+            </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </ion-content>
+
+  <div class="detail-button" ng-show="!isLogin || (isLogin && !detail.isOwner && !detail.isMember&& !detail.isApplied)" ng-click="join();">加入俱乐部</div>
+  <div class="detail-button" ng-show="isLogin && detail.isOwner" ng-click="edit();">编辑俱乐部</div>
+  <div class="detail-button" ng-show="isLogin && !detail.isOwner && detail.isMember" ng-click="out();">退出俱乐部</div>
+  <div class="detail-button" ng-show="isLogin && !detail.isOwner && !detail.isMember && detail.isApplied && detail.permission == 1">审核审核</div>
+
+</ion-view>
+
+<script id="joinClubModel" type="text/ng-template">
+  <div class="modal" id="joinClubModel">
+    <ion-header-bar>
+      <div class="buttons">
+        <button class="button" ng-click="close()">关</button>
+      </div>
+      <h1 class="title">申请提交信息</h1>
+    </ion-header-bar>
+    <ion-content>
+      <form name="form">
+        <div class="list padding" style="margin-bottom:0;">
+          <label class="item item-input"><input type="text" placeholder="申请人姓名" ng-model="applicant.name"></label>
+          <label class="item item-input">
+            <any class="input-label" style='width:auto;'>男</any>
+            <any class="toggle">
+              <input type="checkbox" ng-model="applicant.sex">
+              <any class="track">
+                <any class="handle"></any>
+              </any>
+            </any>
+            <any class="input-label">女</any>
+          </label>
+          <label class="item item-input"><input type="text" placeholder="球龄" ng-model="applicant.experience"></label>
+          <label class="item item-input">
+            <textarea rows="5" cols="20" placeholder="写点儿理由">{{applicant.reason}}</textarea>
+          </label>
+        </div>
+        <div class="padding">
+          <button class="button button-block button-positive" ng-click="submitApply(applicant)">好</button>
+        </div>
+      </form>
+    </ion-content>
+  </div>
+</script>
+
+<script id="clubEditModels" type="text/ng-template">
+  <div class="modal" id="clubModel">
+    <ion-header-bar>
+      <div class="buttons">
+        <button class="button" ng-click="closeEditor()">关</button>
+      </div>
+      <h1 class="title">编辑俱乐部</h1>
+    </ion-header-bar>
+    <ion-content>
+      <form name="form">
+        <div class="list padding">
+          <label class="item item-input"><input type="text" placeholder="{{modelData.name.name}}" ng-model="modelData.name.info"></label>
+          <label class="item item-input"><input type="text" placeholder="{{modelData.time.name}}" ng-model="modelData.time.info"></label>
+          <label class="item item-input"><input type="text" placeholder="{{modelData.area.name}}" ng-model="modelData.area.info"></label>
+          <label class="item item-select item-stacked-label">
+            <select ng-options="list for list in modelData.number.list" ng-model="modelData.number.info">
+              <option value="">{{modelData.number.tip}}</option>
+            </select>
+          </label>
+          <label class="item item-input">
+            <textarea rows="5" cols="20" placeholder="{{modelData.extra.name}}" ng-model="modelData.extra.info"></textarea>
+          </label>
+          <div class="padding">
+            <button class="button button-block button-positive" ng-click="checkForm(modelData)">好</button>
+          </div>
+        </div>
+      </form>
+    </ion-content>
+  </div>
+</script>
+
+<script id="clubModel" type="text/ng-template">
+  <div class="modal" id="clubModel">
+    <ion-header-bar>
+      <div class="buttons">
+        <button class="button" ng-click="closeEditor()">关</button>
+      </div>
+      <h1 class="title">编辑俱乐部</h1>
+    </ion-header-bar>
+    <ion-content>
+      <form name="form">
+        <div class="list padding">
+          <label class="item item-input"><input type="text" placeholder="俱乐部名称" ng-model="club.name"></label>
+          <label class="item item-input"><input type="text" placeholder="成立时间" ng-model="club.time"></label>
+          <label class="item item-input"><input type="text" placeholder="活动范围" ng-model="club.area"></label>
+          <label class="item item-select item-stacked-label">
+            <select ng-options="list for list in club.number" ng-model="club.number">
+              <option value="">请选择成员人数</option>
+            </select>
+          </label>
+          <label class="item item-input">
+            <textarea rows="5" cols="20" placeholder="简介" ng-model="club.intro"></textarea>
+          </label>
+          <div class="padding">
+            <button class="button button-block button-positive" ng-click="submit(club)">好</button>
+          </div>
+        </div>
+      </form>
+    </ion-content>
+  </div>
+</script>
+
+<!-- ng-includes -->
+<!-- <div ng-include src="components/acvitityItem.html"></div> -->

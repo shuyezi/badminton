@@ -1,0 +1,12 @@
+<a href="#/activity/{{activity.id}}">
+  <img class="cover" src="{{activity.cover}}" />
+  <div class="msg">
+    <h2 class="text-overflow" ng-if="activity.desc">{{activity.desc}}</h2>
+    <p ng-if="activity.area">{{activity.area}}</p>
+    <p ng-if="activity.time">{{activity.time}}</p>
+    <div class="list-button" ng-show="!activity.isOver && !activity.isPrivate && !activity.isCanceled" ng-click="cancel(activity)">取消活动</div>
+    <div class="list-button list-cancel" ng-show="!activity.isOver && activity.isPrivate && activity.isCanceled">已取消</div>
+    <div class="list-button" ng-show="!activity.isOver && activity.isPrivate" ng-click="checkList(activity.id)">查看名单</div>
+    <div class="list-button list-cancel" ng-show="activity.isOver">已结束</div>
+  </div>
+</a>

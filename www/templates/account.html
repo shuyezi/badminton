@@ -3,7 +3,12 @@
     <a class="button" href="#/account/info">编辑</a>
   </ion-nav-buttons>
   <ion-content>
-    <div class="cover"><img src="" /></div>
+    <div class="cover">
+      <div class="inner">
+        <img src="{{userInfo.cover}}" />
+        <div class="nickname">{{userInfo.nickname}}</div>
+      </div>
+    </div>
     <!-- <a href="#/account/info" ng-show="isLogin" class="account-item">个人信息<i class="ion-ios-arrow-right"></i></a> -->
     <a href="#/account/activity" ng-show="isLogin" class="account-item">我的活动<i class="ion-ios-arrow-right"></i></a>
     <a href="#/account/club" ng-show="isLogin" class="account-item">我的俱乐部<i class="ion-ios-arrow-right"></i></a>

@@ -1,0 +1,504 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title></title>
+<style id="system" type="text/css">h1,h2,h3,h4,h5,h6,p,blockquote {    margin: 0;    padding: 0;}body {    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;    font-size: 13px;    line-height: 18px;    color: #737373;    margin: 10px 13px 10px 13px;}a {    color: #0069d6;}a:hover {    color: #0050a3;    text-decoration: none;}a img {    border: none;}p {    margin-bottom: 9px;}h1,h2,h3,h4,h5,h6 {    color: #404040;    line-height: 36px;}h1 {    margin-bottom: 18px;    font-size: 30px;}h2 {    font-size: 24px;}h3 {    font-size: 18px;}h4 {    font-size: 16px;}h5 {    font-size: 14px;}h6 {    font-size: 13px;}hr {    margin: 0 0 19px;    border: 0;    border-bottom: 1px solid #ccc;}blockquote {    padding: 13px 13px 21px 15px;    margin-bottom: 18px;    font-family:georgia,serif;    font-style: italic;}blockquote:before {    content:"C";    font-size:40px;    margin-left:-10px;    font-family:georgia,serif;    color:#eee;}blockquote p {    font-size: 14px;    font-weight: 300;    line-height: 18px;    margin-bottom: 0;    font-style: italic;}code, pre {    font-family: Monaco, Andale Mono, Courier New, monospace;}code {    background-color: #fee9cc;    color: rgba(0, 0, 0, 0.75);    padding: 1px 3px;    font-size: 12px;    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    border-radius: 3px;}pre {    display: block;    padding: 14px;    margin: 0 0 18px;    line-height: 16px;    font-size: 11px;    border: 1px solid #d9d9d9;    white-space: pre-wrap;    word-wrap: break-word;}pre code {    background-color: #fff;    color:#737373;    font-size: 11px;    padding: 0;}@media screen and (min-width: 768px) {    body {        width: 748px;        margin:10px auto;    }}</style><style id="custom" type="text/css"></style></head>
+<body marginheight="0"><p>=======================活动列表页接口=======================
+
+</p>
+<p>Path: /activity/list
+
+</p>
+<p>Method: GET
+
+</p>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: "",    //请求失败是后端返回的提示，成功是不需要返回
+    obj: {
+        list[ArrayObject]: [
+            {
+                id[Int]: xx,
+                cover[String]: "",   //活动封面图
+                theme[String]: "",   //活动主题
+                area[String]: "",    //活动地点
+                time[String]: "",    //活动时间
+                joinersLimit[Int]: xx,    //活动参与总人数
+                joinersCurrent[Int]: xx,   //目前活动报名人数
+                intro[String]: ""            //活动简介
+            },
+            ...
+        ]
+    }
+}</code></pre>
+<p>=======================俱乐部列表页接口=======================
+
+</p>
+<p>Path：/club/list
+
+</p>
+<p>Method: GET
+
+</p>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: "",    //请求失败是后端返回的提示，成功是不需要返回
+    obj: {
+        list[ArrayObject]: [
+            {
+                id[Int]: xx,
+                cover[String]: "",   //俱乐部面图
+                name[String]: "",    //俱乐部名字
+                area[String]: "",    //俱乐部活动地点
+                time[String]: "",    //俱乐部活动时间
+                members[Int]: xx,    //俱乐部成员人数
+                intro[String]: ""    //俱乐部简介
+
+            },
+            ...
+        ]
+    }
+}</code></pre>
+<p>=======================活动详情页接口=======================
+
+</p>
+<p>Path：/activity/detail
+
+</p>
+<p>Method: GET
+
+</p>
+<p>Params[Object]: 
+
+</p>
+<pre><code>{
+    id: xxxxx       //活动id    
+}</code></pre>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: "",    //请求失败是后端返回的提示，成功是不需要返回
+    obj: {
+        id[Int]: xx,
+        isOwner[Boolean]: true,      //是否该活动创建者，是为true；当前用户有编辑修改的功能权限；不是为false
+        isApplied[Boolean]: true,    //是否已经报名活动，是为true；否为false（isOwner==true时不返回）
+        permission[Int]: xxx,    ////1已报名，未审核；2已报名，通过审核；3已报名，未通过审核（isOwner==true时不返回）
+        cover[String]: "",   //活动封面
+        theme[String]: "",   //活动主题
+        area[String]: "",    //活动地点
+        time[String]: "",    //活动时间
+        fee[String]: "",     //活动费用
+        club[Stirng]: "",    //俱乐部名字
+        joinersLimit[Int]: xx,    //活动参与总人数
+        joinersCurrent[Int]: xx,   //目前活动报名人数
+        intro[String]: "",            //活动简介
+        open[Boolean]: true,              //活动是否公开，是为true；否为false
+        type[String]: "",               //活动类型，目前二选一：常规&amp;联赛
+        joiners[ArrayObject]: [
+            {
+                id[Int]: xx,
+                name[String]: "",       //参与者昵称
+                cover[String]: "",      //参与者封面
+            },
+            ...
+        ]
+    }
+}</code></pre>
+<p>=======================俱乐部详情页接口=======================
+
+</p>
+<p>Path：/club/detail
+
+</p>
+<p>Method: GET
+
+</p>
+<p>Params[Object]: 
+
+</p>
+<pre><code>{
+    id: xxxxx       //俱乐部id    
+}</code></pre>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: "",    //请求失败是后端返回的提示，成功是不需要返回
+    obj: {
+        id[Int]: xx,
+        isOwner[Boolean]: true,      //是否该活动创建者，是为true；当前用户有编辑修改的功能权限；不是为false
+        isMember[Boolean]: true,    //是否为俱乐部成员，是为true；否为false，可以申请加入该俱乐部（isOwner==true时也为true：管理员也是成员之一）
+        isApplied[Blooean]: true,   //是否申请加入俱乐部，是为true；否为false（isOwner和isMember同时为false的时候才出现）
+        permission[Int]: xxx,       //1已申请，未审核；2已申请，通过审核（此时isMember为true）；3已申请，未通过审核（isOwner和isMember同时为false的时候才出现）
+        cover[String]: "",   //俱乐部面图
+        name[String]: "",    //俱乐部名字
+        area[String]: "",    //俱乐部活动地点
+        time[String]: "",    //俱乐部活动时间
+        members[Int]: xx,    //俱乐部成员人数
+        intro[String]: "",    //俱乐部简介
+        activities: [ArrayObject]: [       //俱乐部对应的活动（结构同活动列表）
+            {
+                id[Int]: xx,
+                cover[String]: "",   //活动封面图
+                theme[String]: "",   //活动主题
+                area[String]: "",    //活动地点
+                time[String]: "",    //活动时间
+                joinersLimit[Int]: xx,    //活动参与总人数
+                joinersCurrent[Int]: xx,   //目前活动报名人数
+                intro[String]: ""            //活动简介
+            },
+            ...
+        ]
+    }
+}</code></pre>
+<p>=======================我的页面接口=======================
+
+</p>
+<p>Path：/user/info
+
+</p>
+<p>Method: GET
+
+</p>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: "",    //请求失败是后端返回的提示，成功是不需要返回
+    obj: {
+        isLogin[Boolean]: true  //是否登录，是为true；否为false
+        id[Int]: xx,            //用户id（isLogin为true才有）
+        cover[String]: "",      //用户封面图（isLogin为true才有）
+        nickname[String]: ""    //用户昵称（isLogin为true才有）
+    }
+}</code></pre>
+<p>=======================我的活动列表页接口=======================
+
+</p>
+<p>Path: /user/activity/list
+
+</p>
+<p>Method: GET
+
+</p>
+<p>Params[Object]: 
+
+</p>
+<pre><code>{
+    type: xxxxx       //活动状态类型，1为即将开始；2为已过期活动（结束和被取消活动）
+}</code></pre>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: "",    //请求失败是后端返回的提示，成功是不需要返回
+    obj: {
+        list[ArrayObject]: [
+            {
+                id[Int]: xx,
+                isOwner[Boolean]: true,       //是否是活动的创建者，是为true；否为false
+                isCanCancelled[Boolean]: true,       //是否可以取消活动，是为true；否为false（tyep为1且isOwner为true时该字段有意义；距离活动开始时间大于24小时为true）
+                isOver[Boolean]: true,              //是否活动结束了，是为true；否为false
+                permission: 1,     //1已报名，未审核；2已报名，通过审核；3已报名，未通过审核（isOwner==true时不返回）
+                isOver: 
+                cover[String]: "",   //活动封面图
+                theme[String]: "",   //活动主题
+                area[String]: "",    //活动地点
+                time[String]: "",    //活动时间
+                joiners[ArrayObject]: [         //isOwner为true时才有
+                    {
+                        id[Int]: xx,            //用户id
+                        cover[String]: "",      //用户封面图
+                        nickname[String]: "",   //用户昵称
+                        permission[Int]: xx     //1已申请，未审核；2已申请，通过审核；3已申请，未通过审核
+                    },
+                    ...
+                ]
+            },
+            ...
+        ]
+    }
+}</code></pre>
+<p>=======================我的活动列表页中确认 接受/拒绝 参与者报名接口=======================    
+
+</p>
+<p>Path: /user/activity/accept
+
+</p>
+<p>Method: POST
+
+</p>
+<p>Params[Object]: 
+
+</p>
+<pre><code>{
+    type[Int]: xxxx,         //确认类型，接受为1；拒绝为2
+    userId[Int]: xxxx,       //接受参加成员id
+    activityId[Int]: xxxx    //活动id
+}</code></pre>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: ""    //请求失败是后端返回的提示，成功是不需要返回
+}</code></pre>
+<p>=======================我的俱乐部列表页接口=======================    
+
+</p>
+<p>Path: /user/club/list
+
+</p>
+<p>Method: GET
+
+</p>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: "",    //请求失败是后端返回的提示，成功是不需要返回
+    obj: {
+        list[ArrayObject]: [
+            {
+                id[Int]: xx,
+                isOwner[Boolean]: true          //是否为该俱乐部创建者，是为true；否为false
+                cover[String]: "",   //俱乐部面图
+                name[String]: "",    //俱乐部名字
+                area[String]: "",    //俱乐部活动地点
+                time[String]: "",    //俱乐部活动时间
+                members[ArrayObject]: [
+                    {
+                        id[Int]: xxx,
+                        nickname[String]: "",       //用户昵称
+                        cover[String]: ""           //用户头像
+                    },
+                    ...
+                ]
+            },
+            ...
+        ]
+    }
+}</code></pre>
+<p>=======================上传图片接口=======================
+
+</p>
+<p>Path: /utils/uploadPic
+
+</p>
+<p>Method: POST
+
+</p>
+<p>Params[Object]: 
+
+</p>
+<pre><code>{
+    picData: ""
+}</code></pre>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: "",    //请求失败是后端返回的提示，成功是不需要返回
+    obj: {
+        picUrl[String]: ""      //服务器存储的图片路径
+    }
+}</code></pre>
+<p>=======================创建活动接口=======================    
+
+</p>
+<p>Path: /activity/add
+
+</p>
+<p>Method: POST
+
+</p>
+<p>Params[Object]: 
+
+</p>
+<pre><code>{
+    cover[String]: "",          //活动封面链接
+    club[String]: "",           //所属俱乐部
+    theme[String]: "",          //活动主题
+    area[String]: "",           //活动地点
+    time[String]: "",           //活动时间
+    fee[String]: "",            //活动费用
+    joinersLimit[Int]: xx,      //活动参与总人数
+    intro[String]: "",          //活动简介
+}</code></pre>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: "",    //请求失败是后端返回的提示，成功是不需要返回
+}</code></pre>
+<p>=======================编辑活动接口=======================    
+
+</p>
+<p>Path: /activity/edit
+
+</p>
+<p>Method: POST
+
+</p>
+<p>Params[Object]: 
+
+</p>
+<pre><code>{
+    id[Int]: xxxx,              //被编辑的活动id
+    cover[String]: "",          //活动封面链接
+    club[String]: "",           //所属俱乐部
+    theme[String]: "",          //活动主题
+    area[String]: "",           //活动地点
+    time[String]: "",           //活动时间
+    fee[String]: "",            //活动费用
+    joinersLimit[Int]: xx,      //活动参与总人数
+    intro[String]: "",          //活动简介
+}</code></pre>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: "",    //请求失败是后端返回的提示，成功是不需要返回
+}</code></pre>
+<p>=======================创建俱乐部接口=======================   
+
+</p>
+<p>Path: /club/add
+
+</p>
+<p>Method: POST
+
+</p>
+<p>Params[Object]: 
+
+</p>
+<pre><code>{
+    cover[String]: "",   //俱乐部面图
+    name[String]: "",    //俱乐部名字
+    area[String]: "",    //俱乐部活动地点
+    time[String]: "",    //俱乐部活动时间
+    members[Int]: xx,    //俱乐部成员人数
+    intro[String]: "",   //俱乐部简介
+}</code></pre>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: "",    //请求失败是后端返回的提示，成功是不需要返回
+}</code></pre>
+<p>=======================编辑俱乐部接口=======================   
+
+</p>
+<p>Path: /club/add
+
+</p>
+<p>Method: POST
+
+</p>
+<p>Params[Object]: 
+
+</p>
+<pre><code>{
+    id[Int]: xxxx,              //被编辑的俱乐部id
+    cover[String]: "",   //俱乐部面图
+    name[String]: "",    //俱乐部名字
+    area[String]: "",    //俱乐部活动地点
+    time[String]: "",    //俱乐部活动时间
+    members[Int]: xx,    //俱乐部成员人数
+    intro[String]: "",   //俱乐部简介
+}</code></pre>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: "",    //请求失败是后端返回的提示，成功是不需要返回
+}</code></pre>
+<p>=======================注册接口=======================   
+
+</p>
+<p>Path: /login
+
+</p>
+<p>Method: POST
+
+</p>
+<p>Params[Object]: 
+
+</p>
+<pre><code>{
+    username[String]: "",       //用户名
+    password[String]: ""        //密码
+}</code></pre>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: "",    //请求失败是后端返回的提示，成功是不需要返回
+}</code></pre>
+<p>=======================登录接口=======================   
+
+</p>
+<p>Path: /login
+
+</p>
+<p>Method: POST
+
+</p>
+<p>Params[Object]: 
+
+</p>
+<pre><code>{
+    username[String]: "",       //用户名
+    password[String]: ""        //密码
+}</code></pre>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: "",    //请求失败是后端返回的提示，成功是不需要返回
+}</code></pre>
+<p>=======================编辑我的信息接口=======================   
+
+</p>
+<p>Path: /user/info/edit
+
+</p>
+<p>Method: POST
+
+</p>
+<p>Params[Object]: 
+
+</p>
+<pre><code>{
+    cover[String]: "",      //用户头像
+    nickname[String]: ""    //用户昵称
+}</code></pre>
+<p>Responses[Object]:
+
+</p>
+<pre><code>{
+    success[Int]: 1,    //请求成功，返回1；请求失败，返回0
+    msg[String]: "",    //请求失败是后端返回的提示，成功是不需要返回
+}</code></pre>
+<p>Edit By <a href="http://mahua.jser.me">MaHua</a>
+Edit By <a href="http://mahua.jser.me">MaHua</a>
+Edit By <a href="http://mahua.jser.me">MaHua</a></p>
+</body></html>

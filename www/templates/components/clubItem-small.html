@@ -4,6 +4,6 @@
 		<h2 class="text-overflow" ng-if="club.name">{{club.name}}</h2>
 		<p ng-if="club.area">{{club.area}}</p>
 		<p ng-if="club.time">{{club.time}}</p>
-		<div ng-if="club.isPrivate && club.isPrivate==1" class="list-button" ng-click="checkList(club.id)">查看成员</div>
+		<div ng-if="club.isOwner" class="list-button" ng-click="checkList(club.id)">查看成员</div>
 	</div>
 </a>

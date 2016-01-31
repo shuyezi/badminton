@@ -3,12 +3,14 @@
 	  <div class="info-wrap">
 	  	<div class="info-item avatar">
 	  		<span>头像</span>
-	  		<img src="">
+	  		<img src="{{userInfo.cover}}">
+	  		<input type="hidden" ng-model="userInfo.cover" />
 	  	</div>
 	  	<div class="info-item name">
 	  		<span>名字</span>
-	  		<p>{{userInfo.name}}</p>
+	  		<input class="cont" type="text" ng-model="userInfo.nickname" />
 	  	</div>
+	  	<div class="submit-button" ng-click="submit(userInfo)">提交</div>
 	  </div>
 	</ion-content>
 </ion-view>

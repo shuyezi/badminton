@@ -1,0 +1,283 @@
+/* Empty. Add your own CSS if you like */
+body{
+	background-color: #fbf7ed;
+	color: #333;
+}
+
+.width50{ width: 50%; }
+.padding0{ padding: 0; }
+.fl{ float: left; }
+.fr{ float: right; }
+.hide{ display: none; }
+.text-overflow{ overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.animation{
+	-webkit-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out
+}
+
+/*page list*/
+.list-wrap{
+	margin-bottom: 60px;
+}
+.list-item{
+	margin-bottom: 8px;
+	/*width: 100%;*/
+	position: relative;
+    z-index: 2;
+    display: block;
+    /*border-radius: 2px;*/
+    overflow: hidden;
+    font-size: 16px;
+    padding: 0;
+    border: 0;
+}
+/*.list-item:last-child{
+	margin-bottom: 60px;
+}*/
+.list-item:first-child{
+	/*margin-top: 8px;*/
+}
+.list-item .list-action{
+	position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: rgba(56, 126, 245, 1);
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 3;
+    border-radius: 4px;
+}
+.list-item a{
+	position: relative;
+	display: block;
+	border: solid 1px #ddd;
+	background-color: #fff;
+	width: 100%;
+	padding-top: 55%;
+	/*border-radius: 4px;*/
+	overflow: hidden;
+}
+.list-item a i{
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	width: 100px;
+	height: 25px;
+	margin-left: -50px;
+	color: rgba(255, 255, 255, 0.85);
+	text-align: center;
+}
+.list-item img{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+.list-item .list-msg{
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.25);
+}
+.list-item .list-msg.dark{
+	background-color: rgba(0, 0, 0, 0.7);
+}
+.list-item h2{
+	color: rgba(255, 255, 255, 0.8);
+	font-weight: 700;
+	margin: 15px 0 0 15px;
+	font-size: 14px;
+	font-family: "Times New Roman", Georgia, Serif;
+	font-size: 16px;
+	height: 16px;
+	line-height: 16px;
+}
+.list-item p{
+	margin: 6px 10px 0 15px;
+	padding-left: 4px;
+	border-left: solid 2px #F11C0B;
+}
+.list-item p em{
+	display: block;
+	font-style: normal;
+	color: rgba(255, 255, 255, 0.6);
+	font-size: 12px;
+	/*height: 12px;*/
+	line-height: 14px;
+	font-weight: 700;
+	font-family: "Times New Roman", Georgia, Serif;
+	margin-bottom: 4px;
+	position: relative;
+	display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.list-item p em:last-child{
+	margin-bottom: 0;
+}
+.list-item p em.extra{
+	max-height: 40px;
+}
+.list-item .todetail{
+	width: 100%;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+}
+.list-item .todetail > i{
+	color: #fff;
+	font-size: 16px;
+	position: relative;
+	display: inline;
+	margin: 0;
+	left: 0;
+}
+
+/*my buttons*/
+.bottom-button{
+	position: fixed;
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px;
+	font-weight: bold;
+	width: 100%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 10;
+	background-color: #387ef5;
+	color: #fff;
+	text-align: center;
+}
+.sign-button{
+	width: 90%;
+	margin: 30px auto 0;
+	background-color: #ff6e6e;
+	color: #fff;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 4px;
+	font-size: 18px; 
+}
+
+/*page detail*/
+.page-cover{
+	position: relative;
+	padding-top: 42%;
+	overflow: hidden;
+	background-color: rgba(0,0,0,0.5);
+}
+.page-cover > img{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+.block-container{}
+.block-container > h2{
+	font-size: 16px;
+	border-left: solid 3px #387ef5;
+	padding-left: 5px;
+	font-weight: bold;
+	color: #333;
+	height: 18px;
+	line-height: 18px;
+	margin: 10px;
+}
+.block-container > p{
+	/*background-color: pink;*/
+	line-height: 20px;
+	color: #333;
+	margin: 0 10px 5px 10px;
+	position: relative;
+	padding-left: 12px;
+}
+.block-container > p:before{
+	position: absolute;
+	left: 0;
+	top: 6px;
+	height: 8px;
+	width: 8px;
+	background-color: #387ef5;
+	content: '';
+}
+.block-container > p:last-child{
+	margin-bottom: 15px;
+}
+.block-container > p:first-child{
+	margin-top: 10px;
+}
+
+/*我的页面*/
+.account-list-item{
+	height: 40px;
+	line-height: 40px;
+	padding-left: 15px;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.25);
+	margin-top: 10px;
+	font-weight: bold;
+	display: block;
+	text-decoration: none;
+}
+.account-list-item > i {
+	float: right;
+	margin-right: 10px;
+	color: #fff;
+	font-size: 20px;
+}
+.account-tabs{
+	height: 40px;
+	width: 100%;
+}
+.account-tabs > span{
+	width: 50%;
+	display: block;
+	float: left;
+	height: 40px;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	background-color: rgba(56, 126, 245, 0.5);
+}
+.account-tabs > span.active{
+	background-color: rgba(56, 126, 245, 0.9);
+}
+
+/*我的活动*/
+.account-activity-item{
+	border: solid 1px rgba(232, 129, 129, 0.6);
+	border-radius: 6px;
+	padding: 5px;
+}
+.account-activity-item > h2{
+	font-size: 18px;
+	font-weight: bold;
+	color: #333;
+	height: 24px;
+	line-height: 18px;
+	overflow: hidden;
+	padding-bottom: 5px;
+	border-bottom: solid 1px rgb(232, 129, 129);
+	margin: 0 0 5px 0;
+}
+.account-activity-item li{
+	height: 18px;
+	line-height: 18px;
+	font-size: 14px;
+}

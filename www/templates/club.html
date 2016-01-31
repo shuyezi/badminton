@@ -27,7 +27,7 @@
           <label class="item item-input"><input type="text" placeholder="成立时间" ng-model="club.time"></label>
           <label class="item item-input"><input type="text" placeholder="活动范围" ng-model="club.area"></label>
           <label class="item item-select item-stacked-label">
-            <select ng-options="list for list in club.number" ng-model="club.number">
+            <select ng-options="list for list in modelSelect.number" ng-model="club.members">
               <option value="">请选择成员人数</option>
             </select>
           </label>

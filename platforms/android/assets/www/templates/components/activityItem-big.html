@@ -1,0 +1,9 @@
+<a href="#/activity/{{activity.id}}">
+	<div class="cover"><img ng-src="{{activity.cover}}" ng-if="activity.cover"></div>
+	<div class="msg">
+	  <h2>{{activity.desc}}</h2>
+	  <p ng-if="activity.area">{{activity.area}}</p>
+	  <p ng-if="activity.time">{{activity.time}}<em ng-if="activity.joinersCnt > 0">已报: {{activity.joinersCnt}}/{{activity.joinersLimit}}</em></p>
+	  <!-- /*<div class="more">看详情</div>*/ -->
+	</div>
+</a>

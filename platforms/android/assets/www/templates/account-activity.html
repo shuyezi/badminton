@@ -1,0 +1,37 @@
+<ion-view view-title="我的活动" id="accountActivityPage">
+	<ion-tabs class="tabs-positive tabs-top">
+		<ion-tab ng-repeat="(index, item) in items" title="{{item.txt}}" 
+			on-select="onTabSelected(item)"
+		></ion-tab>
+	</ion-tabs>
+	<ion-content>
+	  <div style="padding-top: 60px; overflow: hidden;" class="padding">
+	      <div class="accountxx-item" ng-repeat="activity in accountActivitys.list">
+	        <div ng-include src="activityItemTemp"></div>
+	      </div>
+      </div>
+	</ion-content>
+</ion-view>
+
+<script type="text/ng-template" id="joinersListModel">
+	<div class="modal" id="joinersListModel">
+	    <ion-header-bar>
+	      <div class="buttons">
+	        <button class="button" ng-click="close()">关</button>
+	      </div>
+	      <h1 class="title">参加成员</h1>
+	    </ion-header-bar>
+	    <ion-content>
+	      <ul class="join-list padding">
+	      	<li ng-repeat="item in userList">
+	      		<div class="avatar fl" style="background-image:url('{{item.avatar}}'); "></div>
+	      		<div class="name fl">{{item.name}}</div>
+	      		<div class="status fr" ng-show="item.permission == 3">已拒绝</div>
+	      		<div class="status fr" ng-show="item.permission == 2">已接受</div>
+	      		<div class="status fr" style="text-decoration: underline;" ng-show="item.permission ==1" ng-click="jujue(item)">拒绝</div>
+	      		<div class="status fr" style="text-decoration: underline;" ng-show="item.permission ==1" ng-click="jieshou(item)">接受</div>
+	      	</li>
+	      </ul>
+	    </ion-content>
+    </div>
+</script>

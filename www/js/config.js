@@ -13,13 +13,21 @@ window.badminton.config = {
 	},
 	reqApi: {
 		index: "/",
-		clubList: "",
-		clubDetail: "",
-		activityList: "",
-		activityDetail: "",
-		accountActivity: "",
-		accountClub: "",
-		userInfo: ""
+		activityList: "/activity/list",
+		activityDetail: "/activity/detail",
+		clubList: "/club/list",
+		clubDetail: "/club/detail",
+		userInfo: "/user/info",
+		userInfoEdit: "/user/info/edit",
+		accountActivity: "/user/activity/list",
+		accountClub: "/user/club/list",
+		userList: "/user/list",
+		activityAdd: "/activity/add",
+		activityEdit: "/activity/edit",
+		clubAdd: "/club/add",
+		clubEdit: "/club/edit",
+		login: "/login",
+		register: "/register"
 	}
 };
 
@@ -28,12 +36,19 @@ window.badminton.config.debug = true;
 window.badminton.config.domain = "http://dev.wushujin.com/badminton/fakeDatas";
 window.badminton.config.reqApi = {
 	index: "/",
-	clubList: "/clubList.php",
-	clubDetail: "/clubDetail.php",
-	activityList: "/activityList.php",
-	activityDetail: "/activityDetail.php",
-	accountActivity: "/accountActivity.php",
-	accountClub: "/accountClub.php",
-	userInfo: "/userInfo.php",
-	userList: "/userList.php"
+	activityList: "/activity/list.php",
+	activityDetail: "/activity/detail.php",
+	clubList: "/club/list.php",
+	clubDetail: "/club/detail.php",
+	userInfo: "/user/info.php",
+	userInfoEdit: "/user/infoEdit.php",
+	accountActivity: "/user/activityList.php",
+	accountClub: "/user/clubList.php",
+	userList: "/user/list.php",
+	activityAdd: "/activity/add.php",
+	activityEdit: "/activity/edit.php",
+	clubAdd: "/club/add.php",
+	clubEdit: "/club/edit.php",
+	login: "/login.php",
+	register: "/register.php"
 }

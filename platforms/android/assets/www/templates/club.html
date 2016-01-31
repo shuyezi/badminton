@@ -1,0 +1,44 @@
+<ion-view view-title="{{clubs.name}}" id="clubsPage">
+  <ion-nav-buttons side="right">
+    <a class="button" href="#/account">我</a>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="padding">
+      <div class="club-item" ng-repeat="club in clubs.list">
+        <div ng-include src="clubItemTemp"></div>
+      </div>
+    </div>
+  </ion-content>
+  <div class="bottom-button" ng-click="create();">创建俱乐部</div>
+</ion-view>
+
+<script id="clubModel" type="text/ng-template">
+  <div class="modal" id="clubModel">
+    <ion-header-bar>
+      <div class="buttons">
+        <button class="button" ng-click="close()">关</button>
+      </div>
+      <h1 class="title">新建俱乐部</h1>
+    </ion-header-bar>
+    <ion-content>
+      <form name="form">
+        <div class="list padding">
+          <label class="item item-input"><input type="text" placeholder="俱乐部名称" ng-model="club.name"></label>
+          <label class="item item-input"><input type="text" placeholder="成立时间" ng-model="club.time"></label>
+          <label class="item item-input"><input type="text" placeholder="活动范围" ng-model="club.area"></label>
+          <label class="item item-select item-stacked-label">
+            <select ng-options="list for list in club.number" ng-model="club.number">
+              <option value="">请选择成员人数</option>
+            </select>
+          </label>
+          <label class="item item-input">
+            <textarea rows="5" cols="20" placeholder="简介" ng-model="club.intro"></textarea>
+          </label>
+          <div class="padding">
+            <button class="button button-block button-positive" ng-click="submit(club)">好</button>
+          </div>
+        </div>
+      </form>
+    </ion-content>
+  </div>
+</script>

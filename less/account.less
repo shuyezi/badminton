@@ -4,16 +4,29 @@
 		padding-top: 42%;
 		overflow: hidden;
 		background-color: rgba(0,0,0,0.5);
-		>img{
+		>.inner{
 			position: absolute;
 			left: 50%;
 			top: 50%;
+			transform: translate3d(-50%, -50%, 0);
+			-webkit-transform: translate3d(-50%, -50%, 0);
 			width: 60px;
-			height: 60px;
-			border-radius: 50%;
-			margin-top: -30px;
-			margin-left: -30px;
-			background-color: rgba(255, 255, 255, 0.5);
+			height: 80px;
+			overflow: hidden;
+			>img{
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				background-color: rgba(255, 255, 255, 0.5);
+			}
+			>.nickname{
+				text-align: center;
+				width: 60px;
+				height: 12px;
+				line-height: 12px;
+				margin-top: 8px;
+				color: #333;
+			}
 		}
 	}
 	.account-item{
@@ -107,8 +120,22 @@
 	.name{
 		height: 34px;
 		line-height: 34px;
-		>p{
+		>.cont{
+			text-align: right;
 			float: right;
 		}
+	}
+	.submit-button{
+		display: block;
+		text-decoration: none;
+		width: 90%;
+		margin: 30px auto 0;
+		background-color: @buttonColor;
+		color: #fff;
+		text-align: center;
+		height: 40px;
+		line-height: 40px;
+		border-radius: 4px;
+		font-size: 18px; 
 	}
 }

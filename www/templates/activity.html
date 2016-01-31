@@ -1,4 +1,4 @@
-<ion-view title="{{activitys.pageName}}" id="activityPage">
+<ion-view title="活动列表" id="activityPage">
   <ion-nav-buttons side="right">
     <a class="button" href="#/account">我</a>
   </ion-nav-buttons>
@@ -29,9 +29,9 @@
         <div class="list padding" style="margin-bottom: 0;">
           <label class="item item-input"><input type="text" placeholder="活动主题" ng-model="activity.theme"></label>
           <label class="item item-input"><input type="text" placeholder="活动时间" ng-model="activity.time"></label>
-          <label class="item item-input"><input type="text" placeholder="活动地点" ng-model="activity.address"></label>
+          <label class="item item-input"><input type="text" placeholder="活动地点" ng-model="activity.area"></label>
           <label class="item item-select item-stacked-label">
-            <select ng-options="list for list in activity.number" ng-model="activity.number">
+            <select ng-options="list for list in modelSelect.number" ng-model="activity.joinersLimit">
               <option value="">请选择参与活动人数</option>
             </select>
           </label>
@@ -42,7 +42,7 @@
             </select>
           </label>
           <label class="item item-select item-stacked-label">
-            <select ng-options="list for list in activity.type" ng-model="activity.type">
+            <select ng-options="list for list in modelSelect.type" ng-model="activity.type">
               <option value="">请选择活动类型</option>
             </select>
           </label>
@@ -56,7 +56,7 @@
             </any>
           </label>
           <label class="item item-input">
-            <textarea rows="5" cols="20" placeholder="备注" ng-model="activity.extra"></textarea>
+            <textarea rows="5" cols="20" placeholder="备注" ng-model="activity.intro"></textarea>
           </label>
         </div>
         <div class="padding">

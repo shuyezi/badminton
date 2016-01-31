@@ -1,0 +1,8 @@
+<ion-view view-title="{{home.name}}" hide-nav-bar="true" id="homePage">
+  <ion-content class="no-header">
+    <img src="{{home.cover.src}}" />
+  </ion-content>
+  <div class="tabs-button">
+	<a href="#{{enter.href}}" ng-repeat="enter in home.enters">{{enter.name}}</a>
+  </div>
+</ion-view>

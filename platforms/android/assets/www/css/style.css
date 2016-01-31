@@ -1,0 +1,1079 @@
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.animation {
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+/**
+ * Improve readability of focused elements when they are also in an
+ * active/hover state.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+  border: 0;
+}
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+  margin: 1em 40px;
+}
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+  overflow: auto;
+}
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+  overflow: visible;
+}
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+  text-transform: none;
+}
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+  line-height: normal;
+}
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  box-sizing: content-box;
+  /* 2 */
+}
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+  overflow: auto;
+}
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: bold;
+}
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+/*一些常用的class name*/
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+body {
+  background-color: #fbf7ed;
+  color: #333;
+}
+#homePage img {
+  display: block;
+  width: 100%;
+}
+#homePage .tabs-button {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  right: 0;
+  height: 50px;
+  line-height: 50px;
+  background-color: #387ef5;
+}
+#homePage .tabs-button > a {
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+  float: left;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  position: relative;
+}
+#homePage .tabs-button > a:last-child {
+  float: right;
+}
+#homePage .tabs-button > a:last-child:before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 30px;
+  content: "";
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  -ms-transform: translate3d(-50%, -50%, 0);
+  -o-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+#activityPage .activity-item {
+  padding: 0;
+  margin: 0;
+}
+#activityPage .activity-item a {
+  display: block;
+  background-color: #fff;
+  overflow: hidden;
+  border-bottom: solid 1px #eeeeee;
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+#activityPage .activity-item a > .cover {
+  width: 100%;
+  padding-top: 35%;
+  position: relative;
+  overflow: hidden;
+}
+#activityPage .activity-item a > .cover > img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+#activityPage .activity-item a > .msg {
+  padding: 10px;
+}
+#activityPage .activity-item a > .msg > h2 {
+  color: #333333;
+  font-weight: bold;
+  font-family: "Times New Roman", Georgia, Serif;
+  font-size: 16px;
+  height: 18px;
+  line-height: 18px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#activityPage .activity-item a > .msg > p {
+  font-size: 10px;
+  height: 12px;
+  line-height: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#activityPage .activity-item a > .msg > p em {
+  font-style: normal;
+  float: right;
+  display: inline-block;
+}
+#activityPage .activity-item:last-child a {
+  border-bottom: 0;
+}
+#activityPage .bottom-button {
+  position: fixed;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: #387ef5;
+  color: #fff;
+  text-align: center;
+}
+#activityDetailPage {
+  background-color: #fff;
+}
+#activityDetailPage > .wrapper > .cover {
+  position: relative;
+  padding-top: 60%;
+  width: 100%;
+}
+#activityDetailPage > .wrapper > .cover > img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+#activityDetailPage > .wrapper > .msg {
+  padding: 10px;
+  overflow: hidden;
+}
+#activityDetailPage > .wrapper > .msg > h2 {
+  color: #333333;
+  font-weight: bold;
+  font-family: "Times New Roman", Georgia, Serif;
+  font-size: 16px;
+  height: 18px;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+}
+#activityDetailPage > .wrapper > .msg > p {
+  font-size: 12px;
+  margin: 5px 0;
+}
+#activityDetailPage > .wrapper > .msg > p em {
+  font-style: normal;
+  float: right;
+  display: inline-block;
+}
+#activityDetailPage > .wrapper > .msg > .area {
+  font-size: 12px;
+  height: 40px;
+  line-height: 40px;
+  border-top: solid 1px #eeeeee;
+  border-bottom: solid 1px #eeeeee;
+}
+#activityDetailPage > .wrapper > .msg > .area > i {
+  font-style: normal;
+  font-size: 16px;
+  color: #cccccc;
+}
+#activityDetailPage > .wrapper > .msg > .join-people > h3 {
+  padding: 0;
+  margin: 10px 0;
+  font-size: 14px;
+}
+#activityDetailPage > .wrapper > .msg > .join-people > h3 > i {
+  font-style: normal;
+  font-weight: normal;
+  margin-left: 4px;
+}
+#activityDetailPage > .wrapper > .msg > .join-people ul {
+  height: 79px;
+  overflow: hidden;
+  float: left;
+}
+#activityDetailPage > .wrapper > .msg > .join-people ul.shorter {
+  width: 85%;
+}
+#activityDetailPage > .wrapper > .msg > .join-people li {
+  float: left;
+  margin: 0 0 10px 10px;
+}
+#activityDetailPage > .wrapper > .msg > .join-people li:first-child {
+  margin-left: 0;
+}
+#activityDetailPage > .wrapper > .msg > .join-people li > span {
+  width: 48px;
+  display: block;
+}
+#activityDetailPage > .wrapper > .msg > .join-people li > span.name {
+  height: 16px;
+  line-height: 16px;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#activityDetailPage > .wrapper > .msg > .join-people li > span.cover {
+  height: 48px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+#activityDetailPage > .wrapper > .msg > .join-people li > span.cover > img {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+}
+#activityDetailPage > .wrapper > .msg > .join-people > p {
+  height: 79px;
+  line-height: 40px;
+  font-size: 20px;
+  float: right;
+  width: 15%;
+  font-weight: bold;
+}
+#activityDetailPage > .detail-bottom {
+  height: 50px;
+  line-height: 50px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  right: 0;
+  background-color: #387ef5;
+  border-top: solid 1px #387ef5;
+}
+#activityDetailPage > .detail-bottom .bottom-item {
+  width: 50%;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+}
+#activityDetailPage > .detail-bottom .bottom-item.price {
+  color: #387ef5;
+  background-color: #fff;
+  font-size: 12px;
+}
+#activityDetailPage > .detail-bottom .bottom-item.price > i {
+  font-size: 24px;
+  vertical-align: middle;
+  padding-right: 5px;
+  display: inline-block;
+}
+#activityDetailPage > .detail-bottom .bottom-item:last-child {
+  position: relative;
+}
+#activityDetailPage > .detail-bottom .bottom-item:last-child:before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 30px;
+  content: "";
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  -ms-transform: translate3d(-50%, -50%, 0);
+  -o-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+#clubsPage .club-item {
+  position: relative;
+  overflow: hidden;
+  min-height: 100px;
+  margin-bottom: 10px;
+}
+#clubsPage .club-item a {
+  text-decoration: none;
+}
+#clubsPage .club-item:last-child {
+  margin-bottom: 0;
+}
+#clubsPage .club-item:last-child .msg {
+  border-bottom: 0;
+}
+#clubsPage .club-item .cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+#clubsPage .club-item .msg {
+  padding-left: 110px;
+  border-bottom: solid 1px #eeeeee;
+  min-height: 110px;
+}
+#clubsPage .club-item .msg > h2 {
+  font-weight: bold;
+  margin: 0;
+  font-family: "Times New Roman", Georgia, Serif;
+  font-size: 16px;
+  height: 18px;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#clubsPage .club-item .msg > p {
+  font-size: 10px;
+  height: 12px;
+  line-height: 12px;
+  color: #666666;
+  margin-bottom: 0;
+  margin-top: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#clubsPage .bottom-button {
+  position: fixed;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: #387ef5;
+  color: #fff;
+  text-align: center;
+}
+#clubDetailPage .cover {
+  position: relative;
+  padding-top: 42%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#clubDetailPage .cover > img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+#clubDetailPage .detail-block > h2 {
+  font-size: 16px;
+  border-left: solid 3px #eeeeee;
+  padding-left: 5px;
+  font-weight: bold;
+  color: #333;
+  height: 18px;
+  line-height: 18px;
+  margin: 10px;
+}
+#clubDetailPage .detail-block > p {
+  line-height: 20px;
+  color: #333;
+  margin: 0 10px 5px 10px;
+  position: relative;
+  padding-left: 12px;
+}
+#clubDetailPage .detail-block > p:before {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  height: 8px;
+  width: 8px;
+  background-color: #387ef5;
+  content: '';
+}
+#clubDetailPage .detail-block > p:last-child {
+  margin-bottom: 15px;
+}
+#clubDetailPage .detail-block > p:first-child {
+  margin-top: 10px;
+}
+#clubDetailPage > .detail-button {
+  position: fixed;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: #387ef5;
+  color: #fff;
+  text-align: center;
+}
+#accountPage .cover {
+  position: relative;
+  padding-top: 42%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#accountPage .cover > img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-top: -30px;
+  margin-left: -30px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+#accountPage .account-item {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 15px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.25);
+  margin-top: 10px;
+  font-weight: bold;
+  display: block;
+  text-decoration: none;
+}
+#accountPage .account-item > i {
+  float: right;
+  margin-right: 10px;
+  color: #fff;
+  font-size: 20px;
+}
+#accountPage .account-button {
+  display: block;
+  text-decoration: none;
+  width: 90%;
+  margin: 30px auto 0;
+  background-color: #387ef5;
+  color: #fff;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  font-size: 18px;
+}
+#accountLoginPage .form-wrap {
+  margin-top: 30px;
+}
+#accountLoginPage .title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  height: 22px;
+  line-height: 22px;
+  margin: 20px 0 10px 0;
+}
+#accountLoginPage .forget-psd,
+#accountLoginPage .register-now {
+  text-decoration: underline;
+  color: purple;
+  font-size: 10px;
+  padding: 5px 5px 5px 0;
+}
+#accountInfoPage .info-wrap {
+  border-top: solid 1px #eeeeee;
+  border-bottom: solid 1px #eeeeee;
+  padding: 0 10px;
+  margin-top: 10px;
+}
+#accountInfoPage .info-item {
+  position: relative;
+  width: 100%;
+  border-bottom: solid 1px #eeeeee;
+}
+#accountInfoPage .info-item > span {
+  position: absolute;
+  width: 20%;
+  height: 16px;
+  line-height: 16px;
+  top: 50%;
+  left: 4px;
+  margin-top: -8px;
+}
+#accountInfoPage .info-item:last-child {
+  border-bottom: 0;
+}
+#accountInfoPage .avatar {
+  height: 68px;
+}
+#accountInfoPage .avatar > img {
+  width: 60px;
+  height: 60px;
+  border-radius: 2px;
+  position: absolute;
+  top: 4px;
+  right: 0;
+}
+#accountInfoPage .name {
+  height: 34px;
+  line-height: 34px;
+}
+#accountInfoPage .name > p {
+  float: right;
+}
+#accountActivityPage .accountxx-item {
+  position: relative;
+  min-height: 100px;
+  margin-bottom: 10px;
+}
+#accountActivityPage .accountxx-item a {
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+#accountActivityPage .accountxx-item:last-child {
+  margin-bottom: 0;
+}
+#accountActivityPage .accountxx-item:last-child .msg {
+  border-bottom: 0;
+}
+#accountActivityPage .accountxx-item .cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+#accountActivityPage .accountxx-item .msg {
+  padding-left: 110px;
+  border-bottom: solid 1px #eeeeee;
+  min-height: 110px;
+  position: relative;
+}
+#accountActivityPage .accountxx-item .msg > h2 {
+  font-weight: bold;
+  margin: 0;
+  font-family: "Times New Roman", Georgia, Serif;
+  font-size: 16px;
+  height: 18px;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#accountActivityPage .accountxx-item .msg > p {
+  font-size: 10px;
+  height: 12px;
+  line-height: 12px;
+  color: #666666;
+  margin-bottom: 0;
+  margin-top: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#accountActivityPage .accountxx-item .msg > .list-button {
+  width: 90px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+  background-color: #387ef5;
+  border-radius: 2px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+#accountActivityPage .accountxx-item .msg > .list-button.list-cancel {
+  background-color: #cccccc;
+}
+#joinersListModel .join-list li {
+  height: 68px;
+}
+#joinersListModel .join-list li > .avatar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 48px;
+  height: 48px;
+  position: relative;
+  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  overflow: hidden;
+}
+#joinersListModel .join-list li > .name {
+  font-size: 14px;
+  color: #333333;
+  height: 68px;
+  line-height: 68px;
+  max-width: 50%;
+  margin-left: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#joinersListModel .join-list li > .status {
+  height: 68px;
+  line-height: 68px;
+  margin-left: 5px;
+  text-align: right;
+}
+#accountClubPage .accountxx-item {
+  position: relative;
+  min-height: 100px;
+  margin-bottom: 10px;
+}
+#accountClubPage .accountxx-item a {
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+#accountClubPage .accountxx-item:last-child {
+  margin-bottom: 0;
+}
+#accountClubPage .accountxx-item:last-child .msg {
+  border-bottom: 0;
+}
+#accountClubPage .accountxx-item .cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+#accountClubPage .accountxx-item .msg {
+  padding-left: 110px;
+  border-bottom: solid 1px #eeeeee;
+  min-height: 110px;
+  position: relative;
+}
+#accountClubPage .accountxx-item .msg > h2 {
+  font-weight: bold;
+  margin: 0;
+  font-family: "Times New Roman", Georgia, Serif;
+  font-size: 16px;
+  height: 18px;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#accountClubPage .accountxx-item .msg > p {
+  font-size: 10px;
+  height: 12px;
+  line-height: 12px;
+  color: #666666;
+  margin-bottom: 0;
+  margin-top: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#accountClubPage .accountxx-item .msg > .list-button {
+  width: 90px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+  background-color: #387ef5;
+  border-radius: 2px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+#accountClubPage .accountxx-item .msg > .list-button.list-cancel {
+  background-color: #cccccc;
+}
+#clubMembersListModel .join-list li {
+  height: 68px;
+}
+#clubMembersListModel .join-list li > .avatar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 48px;
+  height: 48px;
+  position: relative;
+  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  overflow: hidden;
+}
+#clubMembersListModel .join-list li > .name {
+  font-size: 14px;
+  color: #333333;
+  height: 68px;
+  line-height: 68px;
+  max-width: 50%;
+  margin-left: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#clubMembersListModel .join-list li > .status {
+  height: 68px;
+  line-height: 68px;
+  margin-left: 5px;
+  text-align: right;
+}

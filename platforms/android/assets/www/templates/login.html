@@ -1,0 +1,17 @@
+<ion-view view-title="登陆登陆" id="accountLoginPage">
+    <ion-content>
+    	<div class="form-wrap">
+			<form name="form">
+				<div class="list padding">
+					<label class="item item-input"><input type="text" placeholder="用户名" ng-model="login.username"></label>
+					<label class="item item-input"><input type="password" placeholder="密码" ng-model="login.password"></label>
+					<a class="forget-psd" href="#/account/forgotpsd">忘记密码?</a>
+					<a class="register-now fr" href="#/register">立即注册</a>
+				</div>
+				<div class="padding">
+					<button class="button button-block button-positive" ng-click="submit(login)">好</button>
+				</div>
+			</form>
+		</div>
+    </ion-content>
+</ion-view>
