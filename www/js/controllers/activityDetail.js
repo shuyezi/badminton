@@ -6,7 +6,7 @@ angular.module('badminton.controllers.activityDetail', [])
   var activityIndex = $stateParams.activityId;
 
   //for ng-include
-  $scope.activityItemTemp = window.badminton.config.tempComponents.activityItemBig;
+  $scope.activityFormTemp = window.badminton.config.tempComponents.activityForm;
 
   ActivityDetail({id: activityIndex}).then(function(response){
     console.log('response', response);
@@ -44,8 +44,7 @@ angular.module('badminton.controllers.activityDetail', [])
     // type: window.badminton.config.activityType
     number: window.badminton.utils.generateArray(99),
     activityType: window.badminton.config.activityType,
-    type: "edit",
-    title: "bianji活动"
+    type: window.badminton.config.status.edit
   };
   $scope.modelStatus = "";
   $scope.edit = function(){

@@ -25,8 +25,7 @@ angular.module('badminton.controllers.activity', [])
   $scope.modelSelect = {
     number: window.badminton.utils.generateArray(99),
     activityType: window.badminton.config.activityType,
-    type: "add",
-    title: "新建活动"
+    type: window.badminton.config.status.create
   };
 
   //弹层模型

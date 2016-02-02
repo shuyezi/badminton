@@ -4,7 +4,8 @@
       <div class="buttons">
         <button class="button" ng-click="close()">关</button>
       </div>
-      <h1 class="title">{{modelSelect.title}}</h1>
+      <h1 class="title" ng-show="modelSelect.type == 'create'">新建活动</h1>
+      <h1 class="title" ng-show="modelSelect.type == 'edit'">编辑活动</h1>
     </ion-header-bar>
     <ion-content>
       <form name="form">
@@ -14,18 +15,18 @@
           <label class="item item-input"><input type="text" placeholder="活动地点" ng-model="activity.area"></label>
           <label class="item item-select item-stacked-label">
             <select ng-options="list for list in modelSelect.number" ng-model="activity.joinersLimit">
-              <option value="" ng-show="modelSelect.type == 'add'">请选择参与活动人数</option>
+              <option value="" ng-show="modelSelect.type == 'create'">请选择参与活动人数</option>
             </select>
           </label>
           <label class="item item-input"><input type="text" placeholder="活动费用" ng-model="activity.fee"></label>
           <label class="item item-select item-stacked-label">
             <select ng-options="list for list in clubNames" ng-model="activity.club">
-              <option value="" ng-show="modelSelect.type == 'add'">请选择俱乐部</option>
+              <option value="" ng-show="modelSelect.type == 'create'">请选择俱乐部</option>
             </select>
           </label>
           <label class="item item-select item-stacked-label">
             <select ng-options="list for list in modelSelect.activityType" ng-model="activity.type">
-              <option value="" ng-show="modelSelect.type == 'add'">请选择活动类型</option>
+              <option value="" ng-show="modelSelect.type == 'create'">请选择活动类型</option>
             </select>
           </label>
           <label class="item item-input">
