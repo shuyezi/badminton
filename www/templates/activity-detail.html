@@ -33,47 +33,5 @@
   </div>
 </ion-view>
 
-<script id="activityModel" type="text/ng-template">
-  <div class="modal" id="activityModal">
-    <ion-header-bar>
-      <div class="buttons">
-        <button class="button" ng-click="close()">关</button>
-      </div>
-      <h1 class="title">新建活动</h1>
-    </ion-header-bar>
-    <ion-content>
-      <form name="form">
-        <div class="list padding" style="margin-bottom: 0;">
-          <label class="item item-input"><input type="text" placeholder="活动主题" ng-model="activity.theme"></label>
-          <label class="item item-input"><input type="text" placeholder="活动时间" ng-model="activity.time"></label>
-          <label class="item item-input"><input type="text" placeholder="活动地点" ng-model="activity.area"></label>
-          <label class="item item-select item-stacked-label">
-            <select ng-options="list for list in modelSelect.number" ng-model="activity.joinersLimit"></select>
-          </label>
-          <label class="item item-input"><input type="text" placeholder="活动费用" ng-model="activity.fee"></label>
-          <label class="item item-select item-stacked-label">
-            <select ng-options="list for list in clubNames" ng-model="activity.club"></select>
-          </label>
-          <label class="item item-select item-stacked-label">
-            <select ng-options="list for list in modelSelect.type" ng-model="activity.type"></select>
-          </label>
-          <label class="item item-input">
-            <any class="input-label">是否公开</any>
-            <any class="toggle">
-              <input type="checkbox" ng-model="activity.open">
-              <any class="track">
-                <any class="handle"></any>
-              </any>
-            </any>
-          </label>
-          <label class="item item-input">
-            <textarea rows="5" cols="20" placeholder="备注" ng-model="activity.intro"></textarea>
-          </label>
-        </div>
-        <div class="padding">
-          <button class="button button-block button-positive" ng-click="submit(activity)">好</button>
-        </div>
-      </form>
-    </ion-content>
-  </div>
-</script>
+<!-- ng-includes -->
+<div ng-include src="activityFormTemp"></div>

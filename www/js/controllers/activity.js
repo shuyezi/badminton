@@ -3,6 +3,7 @@ angular.module('badminton.controllers.activity', [])
 .controller('ActivityCtrl', function($scope, $ionicModal, $ionicPopup, Activity, ActivityAdd, Clubs){
   //for ng-include
   $scope.activityItemTemp = window.badminton.config.tempComponents.activityItemBig;
+  $scope.activityFormTemp = window.badminton.config.tempComponents.activityForm;
 
   //数据初始化
   Activity().then(function(response){
@@ -23,10 +24,10 @@ angular.module('badminton.controllers.activity', [])
 
   $scope.modelSelect = {
     number: window.badminton.utils.generateArray(99),
-    type: window.badminton.config.activityType
+    activityType: window.badminton.config.activityType,
+    type: "add",
+    title: "新建活动"
   };
-
-  $scope.status = window.badminton.config.status.create;
 
   //弹层模型
   $scope.modelStatus = "";

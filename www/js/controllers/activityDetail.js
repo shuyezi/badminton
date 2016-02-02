@@ -4,6 +4,10 @@ angular.module('badminton.controllers.activityDetail', [])
   $scope.winHeight = window.innerHeight;
   $scope.winWidth = window.innerWidth;
   var activityIndex = $stateParams.activityId;
+
+  //for ng-include
+  $scope.activityItemTemp = window.badminton.config.tempComponents.activityItemBig;
+
   ActivityDetail({id: activityIndex}).then(function(response){
     console.log('response', response);
     $scope.activityDetail = response.obj;  
@@ -36,8 +40,12 @@ angular.module('badminton.controllers.activityDetail', [])
     });
   }
   $scope.modelSelect = {
+    // number: window.badminton.utils.generateArray(99),
+    // type: window.badminton.config.activityType
     number: window.badminton.utils.generateArray(99),
-    type: window.badminton.config.activityType
+    activityType: window.badminton.config.activityType,
+    type: "edit",
+    title: "bianji活动"
   };
   $scope.modelStatus = "";
   $scope.edit = function(){

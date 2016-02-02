@@ -9,7 +9,8 @@ window.badminton.config = {
 	tempComponents: {
 		activityItemBig: "templates/components/activityItem-big.html",
 		activityItemSmall: "templates/components/activityItem-small.html",
-		clubItemTempSmall: "templates/components/clubItem-small.html"
+		clubItemTempSmall: "templates/components/clubItem-small.html",
+		activityForm: "templates/components/activityform.html"
 	},
 	reqApi: {
 		index: "/",
